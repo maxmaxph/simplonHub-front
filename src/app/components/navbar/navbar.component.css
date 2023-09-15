@@ -1,0 +1,18 @@
+.btn {
+  background-color: #ce0033;
+  color: #f7f7ff;
+  transition: background-color 0.3s; /* Animation douce lors du changement de couleur */
+}
+
+.btn:hover {
+  background-color: #ff7094;
+  color: #29000a;
+}
+
+.nav-link {
+  transition: transform 0.3s ease; /* Transition pour un effet en douceur */
+}
+
+.nav-link:hover {
+  transform: scale(1.05); /* Agrandit le lien de 10% au survol */
+}
