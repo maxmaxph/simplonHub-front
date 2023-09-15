@@ -10,6 +10,7 @@ import { PageConnectComponent } from './pages/page-connect/page-connect.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { PageHomeComponent } from './pages/page-home/page-home.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
     CardComponent,
     PageNotFoundComponent,
     PageConnectComponent,
+    PageHomeComponent,
   ],
   imports: [
     BrowserModule,
