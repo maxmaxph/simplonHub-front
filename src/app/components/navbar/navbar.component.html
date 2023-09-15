@@ -1,7 +1,6 @@
 <nav class="navbar bg-body-tertiary fixed-top">
   <div class="container-fluid">
     <img src="assets/img/logo_navbar.png" alt="logo simplonHub" href="#" />
-
     <button
       class="navbar-toggler"
       type="button"
@@ -33,52 +32,19 @@
             <a class="nav-link active" aria-current="page" href="#">Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <img
-                src="assets/img/commerce.png"
-                alt="Description de l'image"
-                width="20"
-                height="20"
-              />
-
-              Commerces
-            </a>
+            <a class="nav-link" href="#">Commerces</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"
-              ><img
-                src="assets/img/hebergement.png"
-                alt="Description de l'image"
-                width="20"
-                height="20"
-              />
-              Hebergements</a
-            >
+            <a class="nav-link" href="#">Hebergements</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"
-              ><img
-                src="assets/img/restaurant.png"
-                alt="Description de l'image"
-                width="20"
-                height="20"
-              />
-              Restauration</a
-            >
+            <a class="nav-link" href="#">Restauration</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"
-              ><img
-                src="assets/img/sortie.png"
-                alt="Description de l'image"
-                width="20"
-                height="20"
-              />
-              Sorties</a
-            >
+            <a class="nav-link" href="#">Sorties</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"> Autres</a>
+            <a class="nav-link" href="#">Autres</a>
           </li>
           <li class="nav-item dropdown">
             <a
@@ -91,7 +57,11 @@
               Login
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Se connecter</a></li>
+              <li>
+                <button class="dropdown-item" [routerLink]="['login']">
+                  Se connecter
+                </button>
+              </li>
               <li>
                 <hr class="dropdown-divider" />
               </li>
