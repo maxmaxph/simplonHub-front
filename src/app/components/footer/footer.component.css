@@ -1,0 +1,20 @@
+.btn {
+  background-color: #ce0033;
+  color: #f7f7ff;
+  transition: background-color 0.3s; /* Animation douce lors du changement de couleur */
+}
+
+.btn:hover {
+  background-color: #ff7094;
+  color: #29000a;
+}
+
+.icon_color {
+    color:#ff7094;
+    transition: background-color 0.3s;
+
+}
+.icon_color:hover {
+  color: #ce0033;
+}
+

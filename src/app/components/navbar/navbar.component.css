@@ -8,3 +8,14 @@
     background-color: #FF7094;
     color: #29000A
 }
+
+.nav-link {
+    transition: transform 0.3s ease; /* Transition pour un effet en douceur */
+}
+
+.nav-link:hover {
+    transform: scale(1.05); /* Agrandit le lien de 10% au survol */
+}
+
+
+
