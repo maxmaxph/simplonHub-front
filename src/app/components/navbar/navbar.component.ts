@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+declare const bootstrap: any;
+
 
 @Component({
   selector: 'app-navbar',
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  closeOffcanvas(offcanvas: any): void {
+    const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvas);
+    bsOffcanvas.hide();
+  }
 }

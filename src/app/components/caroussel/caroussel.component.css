@@ -6,6 +6,12 @@
 }
 
 .btn:hover {
-    background-color: #FF7094;
+    background-color: #F7F7FF;
     color: #29000A
+}
+
+.carousel-image {
+    height: 600px;
+    /* Ajustez cette valeur selon vos besoins */
+    object-fit: cover;
 }
