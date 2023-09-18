@@ -4,9 +4,11 @@ import { PageConnectComponent } from './pages/page-connect/page-connect.componen
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PageHomeComponent } from './pages/page-home/page-home.component';
 import { PageSubscribeComponent } from './pages/page-subscribe/page-subscribe.component';
+import { PageInfosComponent } from './pages/page-infos/page-infos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'infos', component: PageInfosComponent },
   { path: 'home', component: PageHomeComponent },
   { path: 'login', component: PageConnectComponent },
   { path: '**', component: PageNotFoundComponent },
@@ -14,7 +16,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'enabled', // le défilement est autorisé dans la configuration de routage:
+    }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
