@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
+import { phoneNumberValidator } from 'src/app/validators/phone-number.validator';
 
 @Component({
   selector: 'app-page-subscribe',
@@ -13,7 +14,7 @@ export class PageSubscribeComponent {
     firstname: ['', Validators.required],
     pseudo: ['', Validators.required],
     mail: ['', [Validators.required, Validators.email]],
-    phone: [''],
+    phone: ['',  phoneNumberValidator()],
     password: ['', Validators.required]
   });
 

@@ -54,9 +54,9 @@
                         <div class="mb-3">
                             <label for="phone" class="form-label">Téléphone</label>
                             <input type="text" class="form-control" id="prenom" formControlName="phone">
-                            <div *ngIf="inscriptionForm.controls['phone'].invalid && inscriptionForm.controls['phone'].touched"
-                                class="text-danger">
-                                téléphone
+                            <div
+                                *ngIf="inscriptionForm.controls['phone'].hasError('phoneNumberInvalid') && inscriptionForm.controls['phone'].touched" class="text-danger">
+                                Le numéro de téléphone n'est pas valide.
                             </div>
                         </div>
 
