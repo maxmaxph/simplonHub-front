@@ -2,3 +2,15 @@
   margin-top: 100px;
   margin-bottom: 50px;
 }
+
+.btn {
+    background-color: #ce0033;
+    color: #F7F7FF;
+    transition: background-color 0.3s;
+    /* Animation douce lors du changement de couleur */
+}
+
+.btn:hover {
+    background-color: #FF7094;
+    color: #29000A
+}
