@@ -12,5 +12,9 @@ export class UserService {
 
   loginUser(user: any): Observable<any> { // On envoie l'utilisateur au serveur
       return this.http.post(`${this.url}auth/login`, user);
-    }
+  }
+
+  subscribe(user: any): Observable<any> { // On envoie l'utilisateur au serveur
+      return this.http.post(`${this.url}auth/register`, user);
+  }
 }

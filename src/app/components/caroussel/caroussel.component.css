@@ -10,6 +10,16 @@
 }
 
 .carousel-image {
-  height: 600px; /* Ajustez cette valeur selon vos besoins */
+  height: 650px; /* Ajustez cette valeur selon vos besoins */
   object-fit: cover;
+}
+
+.logo {
+  width: 80%;
+  margin-bottom: 50px;
+  filter: drop-shadow(5px 5px 5px #646464);
+}
+
+.bg_trans {
+  text-shadow: 5px 5px 5px #373636;
 }
