@@ -13,6 +13,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PageHomeComponent } from './pages/page-home/page-home.component';
 import { CardComponent } from './components/card/card.component';
 import { CarousselComponent } from './components/caroussel/caroussel.component';
+import { PageSubscribeComponent } from './pages/page-subscribe/page-subscribe.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { CarousselComponent } from './components/caroussel/caroussel.component';
     PageNotFoundComponent,
     PageHomeComponent,
     CardComponent,
-    CarousselComponent
+    CarousselComponent,
+    PageSubscribeComponent
   ],
   imports: [
     BrowserModule,
