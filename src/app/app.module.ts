@@ -10,6 +10,8 @@ import { PageConnectComponent } from './pages/page-connect/page-connect.componen
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { PageHomeComponent } from './pages/page-home/page-home.component';
+import { CarousselComponent } from './components/caroussel/caroussel.component';
 
 
 
@@ -21,6 +23,8 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
     NavbarComponent,
     PageConnectComponent,
     PageNotFoundComponent,
+    PageHomeComponent,
+    CarousselComponent,
   
   ],
   imports: [
