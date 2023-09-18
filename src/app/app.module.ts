@@ -12,6 +12,9 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { PageHomeComponent } from './pages/page-home/page-home.component';
 import { CarousselComponent } from './components/caroussel/caroussel.component';
+import { UserService } from './services/user.service';
+import { PageSubscribeComponent } from './pages/page-subscribe/page-subscribe.component';
+import { PageInfosComponent } from './pages/page-infos/page-infos.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +26,15 @@ import { CarousselComponent } from './components/caroussel/caroussel.component';
     PageConnectComponent,
     PageHomeComponent,
     CarousselComponent,
+    PageSubscribeComponent,
+    PageInfosComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    
   ],
   providers: [
     {
