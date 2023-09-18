@@ -1,6 +1,6 @@
 <nav class="navbar bg-body-tertiary fixed-top">
   <div class="container-fluid">
-    <img class= logo_navbar src="assets/img/logo_navbar.png" alt="logo simplonHub" href="#" />
+    <img class= logo_navbar src="assets/img/logo_navbar.svg" alt="logo simplonHub" href="#" />
 
     <button
       class="navbar-toggler"
@@ -12,11 +12,13 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
+    <!-- j'ajoute l'id# offcanvas (fermeture au clic) -->
     <div
       class="offcanvas offcanvas-end"
       tabindex="-1"
       id="offcanvasNavbar"
       aria-labelledby="offcanvasNavbarLabel"
+      #offcanvas  
     >
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">simplonHub</h5>
@@ -114,8 +116,9 @@
               />
               Login
             </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" [routerLink]="['login']">Se connecter</a></li>
+            <ul class="dropdown-menu"> 
+                <!-- evenement click pour fermer le menu -->
+              <li><a class="dropdown-item" (click)= "closeOffcanvas(offcanvas)" [routerLink]="['login']">Se connecter</a></li>
               <li>
                 <hr class="dropdown-divider" />
               </li>

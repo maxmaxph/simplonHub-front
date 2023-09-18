@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { PageHomeComponent } from './pages/page-home/page-home.component';
+import { CarousselComponent } from './components/caroussel/caroussel.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { PageHomeComponent } from './pages/page-home/page-home.component';
     PageNotFoundComponent,
     PageConnectComponent,
     PageHomeComponent,
+    CarousselComponent,
   ],
   imports: [
     BrowserModule,

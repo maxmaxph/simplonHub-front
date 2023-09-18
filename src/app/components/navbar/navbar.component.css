@@ -25,5 +25,8 @@
     transform: scale(1.05); /* Agrandit le lien de 10% au survol */
 }
 
+.bg-body-tertiary{
+    opacity: 90%;
+}
 
 
