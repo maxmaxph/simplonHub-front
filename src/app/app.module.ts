@@ -12,6 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { PageHomeComponent } from './pages/page-home/page-home.component';
 import { CarousselComponent } from './components/caroussel/caroussel.component';
+import { PageSubscribeComponent } from './pages/page-subscribe/page-subscribe.component';
+
 
 
 
@@ -25,19 +27,24 @@ import { CarousselComponent } from './components/caroussel/caroussel.component';
     PageNotFoundComponent,
     PageHomeComponent,
     CarousselComponent,
-  
+    PageSubscribeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+  
+
+
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptorService,
-    multi: true
-  }],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
