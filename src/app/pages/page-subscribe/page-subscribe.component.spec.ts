@@ -8,7 +8,7 @@ describe('PageSubscribeComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [PageSubscribeComponent]
+      declarations: [PageSubscribeComponent],
     });
     fixture = TestBed.createComponent(PageSubscribeComponent);
     component = fixture.componentInstance;
