@@ -11,8 +11,8 @@ const routes: Routes = [
   { path: 'info', component: PageInfosComponent },
   { path: 'home', component: PageHomeComponent },
   { path: 'login', component: PageConnectComponent },
+  { path: 'subscribe', component: PageSubscribeComponent},
   { path: '**', component: PageNotFoundComponent },
-  { path: 'subscribe', component: PageSubscribeComponent}
 ];
 
 @NgModule({
