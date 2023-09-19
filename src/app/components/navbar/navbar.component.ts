@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 declare const bootstrap: any;
 @Component({
@@ -7,15 +7,15 @@ declare const bootstrap: any;
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
+  @ViewChild('offcanvasRef') offcanvas: ElementRef;
   isUserLoggedIn = false;
-  constructor(private userService: UserService) {}
+  constructor(private elRef: ElementRef, private userService: UserService) {}
 
   ngOnInit() {
     // je suis l'état de connection de l'usager
     console.log('isuserLoggedIn', this.isUserLoggedIn);
 
     this.isUserLoggedIn = !!localStorage.getItem('token');
-
   }
   // methode pour fermer le menu à l'evenement click de se connecter
   closeOffcanvas(offcanvas: any): void {
@@ -34,8 +34,18 @@ export class NavbarComponent {
     console.log('Tentative de déconnexion');
     this.userService.logout();
     this.isUserLoggedIn = !this.isUserLoggedIn; // Mettez à jour l'état de connexion
-    console.log("je suis dans onlogout isuserloggedin : ", this.isUserLoggedIn);
-    
+    console.log('je suis dans onlogout isuserloggedin : ', this.isUserLoggedIn);
+
     console.log('Déconnexion réussie');
+  }
+
+  @HostListener('document:click', ['$event'])
+  public onDocumentClick(event: Event): void {
+    const clickedInside = this.offcanvas.nativeElement.contains(
+      event.target
+    );
+    if (!clickedInside) {
+      this.closeOffcanvas(this.offcanvas.nativeElement);
+    }
   }
 }
