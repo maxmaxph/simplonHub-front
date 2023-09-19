@@ -8,15 +8,19 @@ import { PageInfosComponent } from './pages/page-infos/page-infos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'subscribe', component: PageSubscribeComponent },
+  { path: 'info', component: PageInfosComponent },
   { path: 'home', component: PageHomeComponent },
   { path: 'login', component: PageConnectComponent },
-   { path: 'infos', component: PageInfosComponent },
-  { path: 'subscribe', component: PageSubscribeComponent},
-   { path: '**', component: PageNotFoundComponent },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'enabled', // le défilement est autorisé dans la configuration de routage:
+    }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

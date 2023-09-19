@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
-import * as bootstrap from 'bootstrap';
+import * as bootstrap from 'bootstrap'
 
 @Component({
   selector: 'app-page-subscribe',
@@ -15,7 +15,7 @@ export class PageSubscribeComponent {
     firstname: ['', Validators.required],
     pseudo: ['', Validators.required],
     mail: ['', [Validators.required, Validators.email]],
-    phone: [''],
+    phone: ['', phoneNumberValidator()],
     password: ['', Validators.required],
   });
 
@@ -34,7 +34,6 @@ export class PageSubscribeComponent {
 
       this.inscriptionForm.reset(); // On vide le formulaire
     }
-
      const modalElement = document.getElementById('subscribeModal');
      const modalInstance = new bootstrap.Modal(modalElement!);
      modalInstance.show();
@@ -44,4 +43,9 @@ export class PageSubscribeComponent {
     close();
     window.location.href = 'login';
   }
+  }
+
+function phoneNumberValidator(): any {
+  throw new Error('Function not implemented.');
 }
+

@@ -1,12 +1,11 @@
 <nav class="navbar bg-body-tertiary fixed-top">
   <div class="container-fluid">
-    <a class="nav-link active" aria-current="page" href="#"
-      ><img
-        class="logo_navbar"
-        src="assets/img/logo_navbar.svg"
-        alt="logo simplonHub"
-        href="#"
-    /></a>
+    <img
+      class="logo_navbar"
+      src="assets/img/logo_navbar.svg"
+      alt="logo simplonHub"
+      [routerLink]="['home']"
+    />
 
     <button
       class="navbar-toggler"
@@ -18,7 +17,6 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <!-- j'ajoute l'id# offcanvas (fermeture au clic) -->
     <div
       class="offcanvas offcanvas-end"
       tabindex="-1"
@@ -28,6 +26,30 @@
     >
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">simplonHub</h5>
+        <!-- Logo de connexion cliquable pour le routing -->
+        <a
+          [routerLink]="isUserLoggedIn ? null : 'login'"
+          (click)="isUserLoggedIn ? onLogout() : null"
+          class="logo-link"
+        >
+          <img
+            *ngIf="!isUserLoggedIn"
+            src="/assets/img/login.png"
+            alt="Logo de connexion"
+            class="logo-connexion"
+            (click)="
+              closeOffcanvas(offcanvas); isUserLoggedIn ? onLogout() : null
+            "
+          />
+
+          <img
+            *ngIf="isUserLoggedIn"
+            src="/assets/img/logout.png"
+            alt="Logo de déconnexion"
+            class="logo-connexion"
+            (click)="closeOffcanvas(offcanvas); onLogout()"
+          />
+        </a>
         <button
           type="button"
           class="btn-close"
@@ -38,7 +60,7 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#"
+            <a class="nav-link active" aria-current="page"
               ><img
                 src="assets/img/accueil.png"
                 alt=""
@@ -104,32 +126,6 @@
               />
               Soumettre un établissement</a
             >
-          </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-              ><img src="assets/img/login.png" alt="" width="20" height="20" />
-              Login
-            </a>
-            <ul class="dropdown-menu">
-              <!-- evenement click pour fermer le menu -->
-              <li>
-                <a
-                  class="dropdown-item"
-                  (click)="closeOffcanvas(offcanvas)"
-                  [routerLink]="['login']"
-                  >Se connecter</a
-                >
-              </li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-              <li><a class="dropdown-item" href="#">Se déconnecter</a></li>
-            </ul>
           </li>
         </ul>
         <form class="d-flex mt-3" role="search">

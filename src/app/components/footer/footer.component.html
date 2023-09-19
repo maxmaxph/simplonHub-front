@@ -4,7 +4,9 @@
     <div class="row py-4">
       <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
         <img src="assets/img/logo_footer.svg" alt="" width="130" class="mb-3" />
-        <p class="font-italic text-muted"></p>
+        <p class="font-italic text-muted">
+          SimplonHub, pour ceux qui ont une grosse teub!
+        </p>
         <ul class="list-inline mt-4">
           <li class="list-inline-item">
             <a href="#" target="_blank" title="twitter"
@@ -12,7 +14,10 @@
             ></a>
           </li>
           <li class="list-inline-item">
-            <a href="#" target="_blank" title="facebook"
+            <a
+              href="https://www.facebook.com/profile.php?id=61551059441893"
+              target="_blank"
+              title="facebook"
               ><i class="fa fa-facebook icon_color"></i
             ></a>
           </li>
@@ -38,7 +43,7 @@
         <ul class="list-unstyled mb-0">
           <li class="mb-2">
             <a
-              [routerLink]="['/infos']"
+              [routerLink]="['/info']"
               (click)="scrollToAnchor('ancre_condition')"
               class="text-muted"
               >Conditions d'utilisation</a
@@ -46,7 +51,7 @@
           </li>
           <li class="mb-2">
             <a
-              [routerLink]="['/infos']"
+              [routerLink]="['/info']"
               (click)="scrollToAnchor('ancre_confidentialite')"
               class="text-muted"
               >Politique de confidentialité</a
@@ -54,7 +59,7 @@
           </li>
           <li class="mb-2">
             <a
-              [routerLink]="['/infos']"
+              [routerLink]="['/info']"
               (click)="scrollToAnchor('ancre_legal')"
               class="text-muted"
               >Mentions légales</a
@@ -69,7 +74,9 @@
             <a class="text-muted" [routerLink]="['login']">Se connecter</a>
           </li>
           <li class="mb-2"><a class="text-muted">Se déconnecter</a></li>
-          <li class="mb-2"><a class="text-muted">S'inscrire</a></li>
+          <li class="mb-2">
+            <a [routerLink]="['/subscribe']" class="text-muted">S'inscrire</a>
+          </li>
           <li class="mb-2"><a class="text-muted">Tous les établissments</a></li>
           <li class="list-inline">
             <img
