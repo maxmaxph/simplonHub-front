@@ -6,7 +6,8 @@
 
 .btn:hover {
     background-color:#F7F7FF;
-    color: #29000A
+    color: #29000A;
+    filter: drop-shadow(5px 5px 5px #1f1f1f); 
 }
 
 .carousel-image {

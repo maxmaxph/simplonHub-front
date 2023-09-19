@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { Component, ElementRef} from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 declare const bootstrap: any;
 @Component({
@@ -7,7 +7,6 @@ declare const bootstrap: any;
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
-  @ViewChild('offcanvasRef') offcanvas: ElementRef;
   isUserLoggedIn = false;
   constructor(private elRef: ElementRef, private userService: UserService) {}
 
@@ -27,6 +26,7 @@ export class NavbarComponent {
     if (overlay) {
       overlay.classList.remove('show');
     }
+    
   }
 
   //methode  de déconnection
@@ -37,15 +37,5 @@ export class NavbarComponent {
     console.log('je suis dans onlogout isuserloggedin : ', this.isUserLoggedIn);
 
     console.log('Déconnexion réussie');
-  }
-
-  @HostListener('document:click', ['$event'])
-  public onDocumentClick(event: Event): void {
-    const clickedInside = this.offcanvas.nativeElement.contains(
-      event.target
-    );
-    if (!clickedInside) {
-      this.closeOffcanvas(this.offcanvas.nativeElement);
-    }
   }
 }
