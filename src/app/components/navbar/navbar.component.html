@@ -16,8 +16,8 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#"><img src="assets/img/accueil.png" alt=""
-                                width="20" height="20" /> Accueil</a>
+                        <a class="nav-link active" aria-current="page" [routerLink]="['/home']"><img src="assets/img/accueil.png" alt=""
+                                width="20" height="20" > Accueil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
@@ -55,12 +55,12 @@
                         </a>
                         <ul class="dropdown-menu">
                             <!-- evenement click pour fermer le menu -->
-                            <li><a class="dropdown-item" (click)="closeOffcanvas(offcanvas)" [routerLink]="['login']">Se
+                            <li><a class="dropdown-item" (click)="closeOffcanvas(offcanvas)" [routerLink]="['/login']">Se
                                     connecter</a></li>
                             <li>
                                 <hr class="dropdown-divider" />
                             </li>
-                            <li><a class="dropdown-item" href="#">Se déconnecter</a></li>
+                            <li><a class="dropdown-item" (click)="onLogout()" >Se déconnecter</a></li>
                         </ul>
                     </li>
                 </ul>

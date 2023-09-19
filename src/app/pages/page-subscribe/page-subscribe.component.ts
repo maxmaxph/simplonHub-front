@@ -25,8 +25,9 @@ export class PageSubscribeComponent {
   onSubmit(): void {
     if (this.inscriptionForm.valid) {
       const newUser: any = this.inscriptionForm.value; // On récupère les données du formulaire
-      console.log('je suis dans le submit, newUser = ', newUser);
-      this.userService.subscribe(newUser).subscribe(() => {
+      this.userService.subscribe(newUser).subscribe((res) => {
+        console.log(res);
+        
         // On envoie les données du formulaire au serveur
         console.log('mise à jour effectué');
       });

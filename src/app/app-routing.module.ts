@@ -4,17 +4,24 @@ import { PageConnectComponent } from './pages/page-connect/page-connect.componen
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PageHomeComponent } from './pages/page-home/page-home.component';
 import { PageSubscribeComponent } from './pages/page-subscribe/page-subscribe.component';
+import { AuthGuard } from './guards/auth-guard.guard';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
   { path: "", redirectTo: 'home', pathMatch: 'full' },
-  { path: "home", component: PageHomeComponent },
+  { path: "home", component: PageHomeComponent},
   { path: "login", component: PageConnectComponent },
-  { path: "subscribe", component: PageSubscribeComponent },
+  { path: "subscribe", component: PageSubscribeComponent, canActivate: [AuthGuard]},
   { path: "**", component: PageNotFoundComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'enabled', // le défilement est autorisé dans la configuration de routage:
+    }),
+  ],
+  providers: [AuthGuardService],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -20,9 +20,7 @@ export class PageConnectComponent {
   onSubmit() {
     if (this.loginForm.valid) {
       const userLogin: any = this.loginForm.value; // On récupère les données du formulaire
-      console.log( "je suis dans le submit, userLogin = ", userLogin);
-      this.userService.loginUser(userLogin).subscribe((res) => { // On envoie l'utilisateur au serveur
-      console.log("je suis dans le submit et je récupère res = ", res);      
+      this.userService.loginUser(userLogin).subscribe((res) => { // On envoie l'utilisateur au serveur      
       const token = res.accessToken; // On récupère le token
 
       // Stocker le token dans le localStorage
@@ -30,7 +28,6 @@ export class PageConnectComponent {
 
       console.log('Token:', token);
       });
-
     }
   }
 }

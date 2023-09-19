@@ -22,7 +22,7 @@
 
 .carousel-image {
 
-    height: 650px;
+    height: 100vh;
     /* Ajustez cette valeur selon vos besoins */
 
     object-fit: cover;
