@@ -1,41 +1,39 @@
 .btn {
-  background-color: #ce0033;
-
-  color: #f7f7ff;
-
-  transition: background-color 0.3s; /* Animation douce lors du changement de couleur */
+    background-color: #ce0033;
+    color: #F7F7FF;
+    transition: background-color 0.3s; /* Animation douce lors du changement de couleur */
 }
 
 .btn:hover {
-  background-color: #f7f7ff;
-
-  color: #29000a;
+    background-color:#F7F7FF;
+    color: #29000A
 }
 
 .carousel-image {
-  height: 650px; /* Ajustez cette valeur selon vos besoins */
+    height: 100vh;
+    object-fit: cover;
+  }
 
-  object-fit: cover;
-}
-
-.logo {
-  width: 85%;
-
-  margin-bottom: 50px;
-
-  filter: drop-shadow(5px 5px 5px #1f1f1f);
-}
-
-.bg_trans {
-  text-shadow: 5px 5px 5px #373636;
-}
-
-@media (max-width: 480px) {
-  .logo {
-    width: 100%;
-
-    margin-bottom: 80px;
-
+  .logo{
+    width: 85%;
+    margin-bottom: 50px;
     filter: drop-shadow(5px 5px 5px #1f1f1f);
   }
-}
+
+  .bg_trans{
+    text-shadow:5px 5px 5px #373636 ;
+  }
+
+  @media (max-width: 480px) {
+
+    .logo{
+
+      width: 100%;
+
+      margin-bottom: 80px;
+
+      filter: drop-shadow(5px 5px 5px #1f1f1f);
+
+    }
+
+  }
