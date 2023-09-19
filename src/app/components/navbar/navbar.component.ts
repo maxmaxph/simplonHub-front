@@ -26,6 +26,7 @@ export class NavbarComponent {
     if (overlay) {
       overlay.classList.remove('show');
     }
+  
   }
 
   //methode  de déconnection
