@@ -13,7 +13,7 @@
       data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasNavbar"
       aria-controls="offcanvasNavbar"
-      aria-label="Toggle navigation"
+      
     >
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -27,29 +27,12 @@
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">simplonHub</h5>
         <!-- Logo de connexion cliquable pour le routing -->
-        <a
-          [routerLink]="isUserLoggedIn ? null : 'login'"
-          (click)="isUserLoggedIn ? onLogout() : null"
-          class="logo-link"
-        >
-          <img
-            *ngIf="!isUserLoggedIn"
-            src="/assets/img/login.png"
-            alt="Logo de connexion"
-            class="logo-connexion"
-            (click)="
-              closeOffcanvas(offcanvas); isUserLoggedIn ? onLogout() : null
-            "
-          />
+<a [routerLink]="isUserLoggedIn ? null : 'login'" (click)="isUserLoggedIn ? onLogout() : null" class="logo-link">
+    <img *ngIf="!isUserLoggedIn" src="/assets/img/login.png" alt="Logo de connexion" class="logo-connexion" (click)="closeOffcanvas(offcanvas); isUserLoggedIn ? onLogout() : null">
 
-          <img
-            *ngIf="isUserLoggedIn"
-            src="/assets/img/logout.png"
-            alt="Logo de déconnexion"
-            class="logo-connexion"
-            (click)="closeOffcanvas(offcanvas); onLogout()"
-          />
-        </a>
+    <img *ngIf="isUserLoggedIn" src="/assets/img/logout.png" alt="Logo de déconnexion" class="logo-connexion" (click)="closeOffcanvas(offcanvas); onLogout()">
+
+</a>
         <button
           type="button"
           class="btn-close"
@@ -127,8 +110,9 @@
               Soumettre un établissement</a
             >
           </li>
+          
         </ul>
-        <form class="d-flex mt-3" role="search">
+        <!-- <form class="d-flex mt-3" role="search">
           <input
             class="form-control me-2"
             type="search"
@@ -136,7 +120,7 @@
             aria-label="Search"
           />
           <button class="btn" type="submit">Chercher</button>
-        </form>
+        </form> -->
       </div>
     </div>
   </div>

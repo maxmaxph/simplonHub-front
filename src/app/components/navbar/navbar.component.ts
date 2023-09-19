@@ -28,6 +28,7 @@ export class NavbarComponent {
     }
   
   }
+  
 
   //methode  de déconnection
   onLogout(): void {
