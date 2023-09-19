@@ -32,10 +32,12 @@
         <img class="logo" src="/assets/img/logo_navbar.svg" alt="" />
         <div class="bg_trans">
           <h5>L'Appli des apprenants par des apprenants</h5>
-          <p>les bonnes adresses autour de l'école.</p>
+          <p>Les bonnes adresses autour de l'école</p>
         </div>
         <button class="btn m-3" [routerLink]="['/login']">Se connecter</button>
-        <button class="btn m-3">S'inscrire</button>
+        <button class="btn m-3" [routerLink]="['/subscribe']">
+          S'inscrire
+        </button>
       </div>
     </div>
     <div class="carousel-item">
@@ -54,10 +56,10 @@
           </p>
         </div>
         <div class="mr-5 ml-5">
-          <button class="btn m-3" [routerLink]="['/login']">
-            Se connecter
+          <button class="btn m-3" [routerLink]="['login']">Se connecter</button>
+          <button class="btn m-3" [routerLink]="['subscribe']">
+            S'inscrire
           </button>
-          <button class="btn m-3">S'inscrire</button>
         </div>
       </div>
     </div>
