@@ -15,6 +15,7 @@ import { CarousselComponent } from './components/caroussel/caroussel.component';
 import { UserService } from './services/user.service';
 import { PageSubscribeComponent } from './pages/page-subscribe/page-subscribe.component';
 import { PageInfosComponent } from './pages/page-infos/page-infos.component';
+import { StoreListComponent } from './components/store-list/store-list.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { PageInfosComponent } from './pages/page-infos/page-infos.component';
     CarousselComponent,
     PageSubscribeComponent,
     PageInfosComponent,
+    StoreListComponent,
   ],
   imports: [
     BrowserModule,
