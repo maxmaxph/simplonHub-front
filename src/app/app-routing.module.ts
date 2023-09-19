@@ -8,11 +8,11 @@ import { PageInfosComponent } from './pages/page-infos/page-infos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'subscribe', component: PageSubscribeComponent },
   { path: 'info', component: PageInfosComponent },
   { path: 'home', component: PageHomeComponent },
   { path: 'login', component: PageConnectComponent },
   { path: '**', component: PageNotFoundComponent },
-  { path: 'subscribe', component: PageSubscribeComponent },
 ];
 
 @NgModule({

@@ -1,0 +1,23 @@
+.container-subscribe {
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+.form-button{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.btn {
+  background-color: #ce0033;
+  color: #f7f7ff;
+  transition: background-color 0.3s; /* Animation douce lors du changement de couleur */
+}
+
+.btn:hover {
+  background-color: #ff7094;
+  color: #29000a;
+}

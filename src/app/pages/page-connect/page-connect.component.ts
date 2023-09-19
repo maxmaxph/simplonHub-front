@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import * as bootstrap from 'bootstrap';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -32,7 +33,20 @@ export class PageConnectComponent {
         // Stocker le token dans le localStorage
         localStorage.setItem('token', token);
 
+        // Afficher la modale de succès
+        const loginModalElement = document.getElementById(
+          'loginModal'
+        ) as HTMLElement;
+        const loginModal = new bootstrap.Modal(loginModalElement);
+        loginModal.show();
+
+
         console.log('Token:', token);
+      }, (error) => {
+        const errorModalElement = document.getElementById('errorModal') as HTMLElement;
+        const errorModal = new bootstrap.Modal(errorModalElement);
+        errorModal.show();
+        console.error('Erreur lors de la connexion:', error);
       });
     }
   }

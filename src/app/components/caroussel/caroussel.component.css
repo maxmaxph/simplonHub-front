@@ -10,16 +10,30 @@
 }
 
 .carousel-image {
-    height: 600px; /* Ajustez cette valeur selon vos besoins */
+    height: 100vh;
     object-fit: cover;
   }
 
   .logo{
-    width: 90%;
+    width: 85%;
     margin-bottom: 50px;
-    filter: drop-shadow(5px 5px 5px #646464);
+    filter: drop-shadow(5px 5px 5px #1f1f1f);
   }
 
   .bg_trans{
     text-shadow:5px 5px 5px #373636 ;
+  }
+
+  @media (max-width: 480px) {
+
+    .logo{
+
+      width: 100%;
+
+      margin-bottom: 80px;
+
+      filter: drop-shadow(5px 5px 5px #1f1f1f);
+
+    }
+
   }
