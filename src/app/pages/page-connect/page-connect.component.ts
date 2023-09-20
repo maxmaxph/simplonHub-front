@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import * as bootstrap from 'bootstrap';
+import { Modal } from 'bootstrap';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -38,7 +38,7 @@ export class PageConnectComponent {
           const loginModalElement = document.getElementById(
             'loginModal'
           ) as HTMLElement;
-          const loginModal = new bootstrap.Modal(loginModalElement);
+          const loginModal = new Modal(loginModalElement);
           loginModal.show();
 
           console.log('Token:', token);
@@ -47,7 +47,7 @@ export class PageConnectComponent {
           const errorModalElement = document.getElementById(
             'errorModal'
           ) as HTMLElement;
-          const errorModal = new bootstrap.Modal(errorModalElement);
+          const errorModal = new Modal(errorModalElement);
           errorModal.show();
           console.error('Erreur lors de la connexion:', error);
         }
