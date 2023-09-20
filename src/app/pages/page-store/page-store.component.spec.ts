@@ -8,7 +8,7 @@ describe('PageStoreComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [PageStoreComponent]
+      declarations: [PageStoreComponent],
     });
     fixture = TestBed.createComponent(PageStoreComponent);
     component = fixture.componentInstance;

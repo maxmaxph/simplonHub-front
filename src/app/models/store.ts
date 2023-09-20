@@ -2,10 +2,15 @@ export interface Store {
   id: number;
   name: string;
   phone: string;
-  number: string;
-  street: string;
-  city: string;
-  zip: string;
-  web: string;
-  description: string;
+  categories: any;
+  comments: any;
+  number: string | null;
+  street: string | null;
+  city: string | null;
+  zip: string | null;
+  web: string | null;
+  map: string | null;
+  description: string | null;
+  user_id: number;
+  picture_id: number | null;
 }
