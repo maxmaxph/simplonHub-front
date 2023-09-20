@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Store } from 'src/app/models/store';
-import { StoreService } from 'src/app/services/store.service';
 
 @Component({
   selector: 'app-page-add-store',
@@ -8,11 +6,11 @@ import { StoreService } from 'src/app/services/store.service';
   styleUrls: ['./page-add-store.component.css']
 })
 export class PageAddStoreComponent {
-  tabCategorie: string[] = [];
 
-  constructor(private storeService: StoreService) { }
+  constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

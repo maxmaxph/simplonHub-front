@@ -35,14 +35,37 @@
                 placeholder="Entrez une description pour l'établissement"></textarea>
         </div>
 
-        <div class="mb-3">
-            <label for="category" class="form-label">Catégorie</label>
-            <select class="form-control" id="category" formControlName="category">
-                <option value="Restaurant">Restaurant</option>
-                <option value="Hotel">Hôtel</option>
-                <option value="Bar">Bar</option>
-                <option value="Autre">Autre</option>
-            </select>
+        <div class="mb-4">
+            <label class="form-label">Catégories</label>
+            <div class="row gy-3">
+                <div class="col-sm-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Commerce" id="commerce"
+                            formControlName="commerce">
+                        <label class="form-check-label" for="commerce">Commerce</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Hebergement" id="hebergement"
+                            formControlName="hebergement">
+                        <label class="form-check-label" for="hebergement">Hébergement</label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Restauration" id="restauration"
+                            formControlName="restauration">
+                        <label class="form-check-label" for="restauration">Restauration</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Sortie" id="sortie" formControlName="sortie">
+                        <label class="form-check-label" for="sortie">Sortie</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="Autre" id="autre" formControlName="autre">
+                <label class="form-check-label" for="autre">Autre</label>
+            </div>
         </div>
 
         <div class="mb-3">
