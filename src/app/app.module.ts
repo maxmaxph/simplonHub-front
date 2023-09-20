@@ -15,6 +15,7 @@ import { CarousselComponent } from './components/caroussel/caroussel.component';
 import { PageSubscribeComponent } from './pages/page-subscribe/page-subscribe.component';
 import { PageInfosComponent } from './pages/page-infos/page-infos.component';
 import { StoreListComponent } from './components/store-list/store-list.component';
+import { PageStoreComponent } from './pages/page-store/page-store.component';
 
 
 
@@ -31,7 +32,8 @@ import { StoreListComponent } from './components/store-list/store-list.component
     CarousselComponent,
     PageSubscribeComponent,
     PageInfosComponent,
-    StoreListComponent
+    StoreListComponent,
+    PageStoreComponent
   ],
   imports: [
     BrowserModule,
