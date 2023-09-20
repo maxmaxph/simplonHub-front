@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { phoneNumberValidator } from 'src/app/validators/phone-number.validator';
-import * as bootstrap from 'bootstrap';
+import { Modal } from 'bootstrap';
 
 
 
@@ -38,7 +38,7 @@ export class PageSubscribeComponent {
       this.inscriptionForm.reset(); // On vide le formulaire
     }
      const modalElement = document.getElementById('subscribeModal');
-     const modalInstance = new bootstrap.Modal(modalElement!);
+     const modalInstance = new Modal(modalElement!);
      modalInstance.show();
   }
 

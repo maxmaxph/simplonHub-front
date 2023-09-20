@@ -25,25 +25,23 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"><img src="assets/img/accueil.png" alt=""
-                                width="20" height="20" />
-                            Accueil</a>
+                        <a class="nav-link active" aria-current="page" [routerLink]="['/home']">
+                            <img src="assets/img/accueil.png" alt="" width="20" height="20" />
+                            Accueil
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" [routerLink]="['/store']">
                             <img src="assets/img/commerce.png"  alt="" width="20" height="20" />
-
                             Commerces
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><img src="assets/img/hebergement.png" alt="" width="20"
-                                height="20" />
+                        <a class="nav-link" href="#"><img src="assets/img/hebergement.png" alt="" width="20" height="20" />
                             Hebergements</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><img src="assets/img/restaurant.png" alt="" width="20"
-                                height="20" />
+                        <a class="nav-link" href="#"><img src="assets/img/restaurant.png" alt="" width="20" height="20" />
                             Restauration</a>
                     </li>
                     <li class="nav-item">
@@ -55,8 +53,7 @@
                             Autres</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><img src="assets/img/soumettre.png" alt="" width="20"
-                                height="20" />
+                        <a class="nav-link" [routerLink]="['/add-store']" ><img src="assets/img/soumettre.png" alt="" width="20" height="20" />
                             Soumettre un établissement</a>
                     </li>
 

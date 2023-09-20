@@ -1,0 +1,57 @@
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Créer un nouvel établissement</h2>
+    <form [formGroup]="formStore" (ngSubmit)="submit()" class="bg-light p-5 rounded shadow">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="name" class="form-label">Nom</label>
+                <input type="text" class="form-control" id="name" formControlName="name" placeholder="Entrez le nom">
+            </div>
+            <div class="col-md-6">
+                <label for="phone" class="form-label">Téléphone</label>
+                <input type="text" class="form-control" id="phone" formControlName="phone"
+                    placeholder="Entrez le téléphone">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="street" class="form-label">Rue</label>
+                <input type="text" class="form-control" id="street" formControlName="street"
+                    placeholder="Entrez la rue">
+            </div>
+            <div class="col-md-4">
+                <label for="city" class="form-label">Ville</label>
+                <input type="text" class="form-control" id="city" formControlName="city" placeholder="Entrez la ville">
+            </div>
+            <div class="col-md-2">
+                <label for="zip" class="form-label">CP</label>
+                <input type="text" class="form-control" id="zip" formControlName="zip" placeholder="Code Postal">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" rows="4" formControlName="description"
+                placeholder="Entrez une description pour l'établissement"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="category" class="form-label">Catégorie</label>
+            <select class="form-control" id="category" formControlName="category">
+                <option value="Restaurant">Restaurant</option>
+                <option value="Hotel">Hôtel</option>
+                <option value="Bar">Bar</option>
+                <option value="Autre">Autre</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input type="file" class="form-control" id="image" formControlName="image">
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-lg" [disabled]="formStore.invalid">Soumettre</button>
+        </div>
+    </form>
+</div>
