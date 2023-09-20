@@ -5,11 +5,15 @@
                 <img src="">
             </div>
             <div class="content">
-                <h2>CARD</h2>
+                <h2> {{ store.name }} </h2>
                 <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Architecto, hic? Magnam eum error saepe doloribus corrupti
-                    repellat quisquam alias doloremque!
+                    {{ store.description }}
+                </p>
+                <p *ngIf="store.categories[0]">
+                    {{ store.categories[0].category }}
+                </p>
+                <p *ngIf="store.comments[0]">
+                    {{ store.comments[0].note }}
                 </p>
                 <a href="" class="btn">Voir plus</a>
             </div>

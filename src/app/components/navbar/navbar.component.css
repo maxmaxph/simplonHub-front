@@ -32,5 +32,15 @@
 }
 
 .bg-body-tertiary {
-    opacity: 90%;
+    opacity: 95%;
+}
+
+.logo-connexion {
+    width: 20px;
+    transition: transform 0.3s ease;
+}
+
+.logo-connexion:hover {
+    transform: scale(1.30);
+    /* Agrandit le lien de 10% au survol */
 }

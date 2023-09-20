@@ -15,6 +15,8 @@ import { CardComponent } from './components/card/card.component';
 import { CarousselComponent } from './components/caroussel/caroussel.component';
 import { PageSubscribeComponent } from './pages/page-subscribe/page-subscribe.component';
 import { PageInfosComponent } from './pages/page-infos/page-infos.component';
+import { StoreListComponent } from './components/store-list/store-list.component';
+import { PageStoreComponent } from './pages/page-store/page-store.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { PageInfosComponent } from './pages/page-infos/page-infos.component';
     CardComponent,
     CarousselComponent,
     PageSubscribeComponent,
-    PageInfosComponent
+    PageInfosComponent,
+    StoreListComponent,
+    PageStoreComponent
   ],
   imports: [
     BrowserModule,

@@ -6,12 +6,14 @@ import { PageHomeComponent } from './pages/page-home/page-home.component';
 import { PageSubscribeComponent } from './pages/page-subscribe/page-subscribe.component';
 import { AuthGuard } from './guards/auth-guard.guard';
 import { AuthGuardService } from './services/auth-guard.service';
+import { PageStoreComponent } from './pages/page-store/page-store.component';
 
 const routes: Routes = [
   { path: "", redirectTo: 'home', pathMatch: 'full' },
-  { path: "home", component: PageHomeComponent},
+  { path: "home", component: PageHomeComponent },
   { path: "login", component: PageConnectComponent },
-  { path: "subscribe", component: PageSubscribeComponent, canActivate: [AuthGuard]},
+  { path: "store", component: PageStoreComponent, canActivate: [AuthGuard] },
+  { path: "subscribe", component: PageSubscribeComponent },
   { path: "**", component: PageNotFoundComponent}
 ];
 
