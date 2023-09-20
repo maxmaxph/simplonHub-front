@@ -1,6 +1,9 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Injectable } from "@angular/core";
 import { Observable, catchError, map, throwError } from "rxjs";
 
+
+@Injectable()
 export class AuthGuardService {
   private readonly apiUrl = 'http://localhost:3000/api/auth/checktoken'; // URL api
 
