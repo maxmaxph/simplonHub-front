@@ -101,11 +101,19 @@
         border-radius: 10px;
     }
 
+    .card .content h2 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #ce0033;
+}
+
      .card .content p {
         font-size: 0.8rem;
+        margin-bottom: 0;
     }
 
      .card .content a {
         font-size: 0.9rem;
+        padding: 12px 25px;
     }
 }
