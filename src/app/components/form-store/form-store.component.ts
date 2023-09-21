@@ -19,6 +19,7 @@ export class FormStoreComponent {
  
     name: ['', [Validators.required ]],
     phone: ['', [phoneNumberValidator()]],
+    number: [''],
     street: [''],
     city: [''],
     zip: [''],
