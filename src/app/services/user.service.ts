@@ -27,4 +27,14 @@ export class UserService {
     // je redirige l'usager vers la page de connexion ou la page d'accueil
     this.router.navigate(['/login']);
   }
+  getAllUsers(): Observable<any> {
+    return this.http.get(`${this.url}user`);
+  }
+
+  softDeleteUser(id: number): Observable<any> {
+    console.log('je suis dans user.service.ts softDeleteUser id = ', id);   
+    return this.http.patch(`${this.url}user/soft-delete/${id}`, {});
+  }
+
+  
 }

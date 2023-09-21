@@ -1,5 +1,5 @@
 <div class="container mt-5">
-    <h2 class="mb-4 text-center">Créer un nouvel établissement</h2>
+    <h2 class="mt-5 mb-4 text-center">Créer un nouvel établissement</h2>
     <form [formGroup]="formStore" (ngSubmit)="submit()" class="bg-light p-5 rounded shadow">
         <div class="row mb-3">
             <div class="col-md-6">
@@ -79,7 +79,7 @@
         </div>
 
         <div class="text-center">
-            <button type="submit" class="btn btn-primary btn-lg">Soumettre</button>
+            <button type="submit" class="btn btn-primary btn-lg" [disabled]="formStore.invalid">Soumettre</button>
         </div>
     </form>
 </div>

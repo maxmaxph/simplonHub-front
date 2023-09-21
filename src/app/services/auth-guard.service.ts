@@ -11,21 +11,30 @@ export class AuthGuardService {
 
   constructor(private http: HttpClient) {}
 
-  validateToken(token: string): Observable<any> { // On envoie le token et l'email au serveur pour vérifier si le token est valide
-    const headers = new HttpHeaders({ // On envoie le token dans le header de la requête
-      'Authorization': `Bearer ${token}`,
-      'Content-Type': 'application/json'
-    });
-    
-    return this.http.post(`${this.apiUrl}`, { headers }).pipe( 
-        map(response => { // On retourne la réponse du serveur
-            console.log('je suis dans guard service et la reponse du serveur', response);
-            return response;
-        }),
-        catchError(error => { // Si le token n'est pas valide
-            console.error('Erreur lors de la validation du token:', error);
-            return throwError('Une erreur est survenue lors de la validation du token.');
-        })
-    );
+  validateToken(token: string): Observable<any> { 
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${token}`,
+    'Content-Type': 'application/json'
+  });
+
+  const options = { headers: headers };
+
+  return this.http.post(`${this.apiUrl}`, {}, options).pipe(
+    map(response => { 
+      console.log('je suis dans guard service et la reponse du serveur', response);
+      return response;
+    }),
+    catchError(error => { 
+      console.error('Erreur lors de la validation du token:', error);
+      return throwError('Une erreur est survenue lors de la validation du token.');
+    })
+  );
 }
+
+
+
+
+
+
+
 }

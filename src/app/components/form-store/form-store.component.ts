@@ -18,7 +18,7 @@ export class FormStoreComponent {
   formStore: FormGroup = this.formBuilder.group({
  
     name: ['', [Validators.required ]],
-    phone: ['', [phoneNumberValidator()]],
+    phone: ['', [phoneNumberValidator(), Validators.required]],
     number: [''],
     street: [''],
     city: [''],

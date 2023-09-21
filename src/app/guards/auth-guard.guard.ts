@@ -24,23 +24,32 @@ export class AuthGuard implements CanActivate {
       return of(false); // On utilise of pour retourner un Observable
     }
 
-    return this.authService.validateToken(token).pipe( // On valide le token
-      map(response => { 
-        console.log('je suis dans le guard et la reponse du service : ', response);
-        if (response && response.valid === true) { // Si le token est valide
-          console.log('je suis dans le guard et le token est valide');  
-          return true;
-        }else { // Si le token n'est pas valide
-          console.log('je suis dans le guard es le token invalide');
-          this.router.navigate(['/login']);
-          return false;          
-        }
+    return this.authService.validateToken(token).pipe(
+    map(response => { 
+      console.log('je suis dans le guard et la reponse du service : ', response);
+      
+      // Vérifiez d'abord la validité du token
+      if (!response || response.valid !== true) { 
+        console.log('je suis dans le guard et le token est invalide');
+        this.router.navigate(['/login']);
+        return false;
+      }
+
+      // Ensuite, vérifiez si l'utilisateur est supprimé
+      if (response.isDeleted === true) {
+        console.log('je suis dans le guard et l\'utilisateur est supprimé');  
+        this.router.navigate(['/login'], { queryParams: { message: 'User account is deactivated' } });
+        return false;
+      }
+
+      console.log('je suis dans le guard et le token est valide');  
+      return true;
       }),
-      catchError(error => { // Si le token n'est pas valide
+      catchError(error => {
         console.error('Erreur lors de la validation du token:', error);
-        this.router.navigate(['/login'], { queryParams: { message: 'Token validation failed' } }); // On redirige vers la page de login
+        this.router.navigate(['/login'], { queryParams: { message: 'Token validation failed' } }); 
         return of(false);
       })
     );
-}
+  } 
 }
