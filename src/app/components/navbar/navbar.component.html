@@ -55,6 +55,7 @@
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page"
+            [routerLink]="['home']"
               ><img
                 src="assets/img/accueil.png"
                 alt=""
@@ -65,7 +66,7 @@
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="#" [routerLink]="['store']">
               <img
                 src="assets/img/commerce.png"
                 alt=""
@@ -112,11 +113,13 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"
+            [routerLink]="['submit']"
               ><img
                 src="assets/img/soumettre.png"
                 alt=""
                 width="20"
                 height="20"
+                
               />
               Soumettre un établissement</a
             >

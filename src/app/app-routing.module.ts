@@ -8,6 +8,7 @@ import { AuthGuard } from './guards/auth-guard.guard';
 import { AuthGuardService } from './services/auth-guard.service';
 import { PageStoreComponent } from './pages/page-store/page-store.component';
 import { PageInfosComponent } from './pages/page-infos/page-infos.component';
+import { PageAddStoreComponent } from './pages/page-add-store/page-add-store.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'login', component: PageConnectComponent },
   { path: 'store', component: PageStoreComponent, canActivate: [AuthGuard] },
   { path: 'subscribe', component: PageSubscribeComponent },
-  { path: 'info', component: PageInfosComponent},
+  { path: 'info', component: PageInfosComponent },
+  { path : 'submit', component: PageAddStoreComponent, canActivate: [AuthGuard]},
   { path: '**', component: PageNotFoundComponent },
 ];
 

@@ -17,6 +17,8 @@ import { PageSubscribeComponent } from './pages/page-subscribe/page-subscribe.co
 import { PageInfosComponent } from './pages/page-infos/page-infos.component';
 import { StoreListComponent } from './components/store-list/store-list.component';
 import { PageStoreComponent } from './pages/page-store/page-store.component';
+import { FormStoreComponent } from './components/form-store/form-store.component';
+import { PageAddStoreComponent } from './pages/page-add-store/page-add-store.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { PageStoreComponent } from './pages/page-store/page-store.component';
     PageInfosComponent,
     StoreListComponent,
     PageStoreComponent,
+    FormStoreComponent,
+    PageAddStoreComponent,
   ],
   imports: [
     BrowserModule,
