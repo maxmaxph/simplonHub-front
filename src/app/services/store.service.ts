@@ -18,7 +18,6 @@ export class StoreService {
 
    createStore(newStore: Store): Observable<any> { // On envoie la nouvelle plante au serveur
     console.log(newStore);
-    const token = localStorage.getItem('token'); // On récupère le token dans le localStorage
-    return this.http.post(this.url, newStore, {headers : { 'Authorization': `Bearer ${token}`}}); // On envoie le token dans le header de la requête
+    return this.http.post(this.url, newStore); // On envoie le token dans le header de la requête
   }
 }
