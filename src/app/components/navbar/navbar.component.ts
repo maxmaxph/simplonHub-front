@@ -1,4 +1,4 @@
-import { Component, ElementRef} from '@angular/core';
+import { Component } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 declare const bootstrap: any;
 @Component({
@@ -8,7 +8,7 @@ declare const bootstrap: any;
 })
 export class NavbarComponent {
   isUserLoggedIn = false;
-  constructor(private elRef: ElementRef, private userService: UserService) {}
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
     // je suis l'état de connection de l'usager
@@ -26,8 +26,9 @@ export class NavbarComponent {
     if (overlay) {
       overlay.classList.remove('show');
     }
-    
+  
   }
+  
 
   //methode  de déconnection
   onLogout(): void {

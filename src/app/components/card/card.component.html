@@ -13,7 +13,8 @@
         <p *ngIf="store.comments[0]">
             {{ store.comments[0].note }}
         </p>
-        <a href="" class="btn">Voir plus</a>
+        <a [routerLink]="['/store', store.id]" class="btn">Voir plus</a>
+
     </div>
 </div>
 

@@ -16,6 +16,13 @@ import { UserService } from './services/user.service';
 import { PageSubscribeComponent } from './pages/page-subscribe/page-subscribe.component';
 import { PageInfosComponent } from './pages/page-infos/page-infos.component';
 import { StoreListComponent } from './components/store-list/store-list.component';
+import { PageStoreComponent } from './pages/page-store/page-store.component';
+import { PageAddStoreComponent } from './pages/page-add-store/page-add-store.component';
+import { FormStoreComponent } from './components/form-store/form-store.component';
+import { AdmintableComponent } from './components/admintable/admintable.component';
+import { PageAdminComponent } from './pages/page-admin/page-admin.component';
+import { StoreDetailComponent } from './components/store-detail/store-detail.component';
+
 
 @NgModule({
   declarations: [
@@ -30,13 +37,19 @@ import { StoreListComponent } from './components/store-list/store-list.component
     PageSubscribeComponent,
     PageInfosComponent,
     StoreListComponent,
+    PageStoreComponent,
+    PageAddStoreComponent,
+    FormStoreComponent,
+    AdmintableComponent,
+    PageAdminComponent,
+    StoreDetailComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    
   ],
   providers: [
     {
