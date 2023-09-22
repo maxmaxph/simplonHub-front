@@ -13,6 +13,7 @@ export class PageAdminComponent {
   constructor(private userService: UserService) {}
   ngOnInit(): void {
     this.userService.getAllUsers().subscribe((data: User[]) => {
+      // On récupère tous les utilisateurs
       this.tabUser = data;
       console.log(this.tabUser);
     });

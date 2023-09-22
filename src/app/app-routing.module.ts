@@ -7,7 +7,6 @@ import { PageSubscribeComponent } from './pages/page-subscribe/page-subscribe.co
 import { AuthGuard } from './guards/auth-guard.guard';
 import { AuthGuardService } from './services/auth-guard.service';
 import { PageStoreComponent } from './pages/page-store/page-store.component';
-import { PageInfosComponent } from './pages/page-infos/page-infos.component';
 import { PageAddStoreComponent } from './pages/page-add-store/page-add-store.component';
 import { PageAdminComponent } from './pages/page-admin/page-admin.component';
 
@@ -15,15 +14,18 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: PageHomeComponent },
   { path: 'login', component: PageConnectComponent },
-  { path: 'store', component: PageStoreComponent, canActivate: [AuthGuard] },
-  { path: 'subscribe', component: PageSubscribeComponent },
-  { path: 'admin', component: PageAdminComponent, canActivate: [AuthGuard] },
-  { path: 'info', component: PageInfosComponent },
   {
-    path: 'submit',
+    path: 'store/:categoryId',
+    component: PageStoreComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'add-store',
     component: PageAddStoreComponent,
     canActivate: [AuthGuard],
   },
+  { path: 'admin', component: PageAdminComponent, canActivate: [AuthGuard] },
+  { path: 'subscribe', component: PageSubscribeComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 

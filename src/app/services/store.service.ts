@@ -1,27 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { InterfaceStore } from '../models/store.interface';
-import { Observable, map } from 'rxjs';
 import { Store } from '../models/store';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StoreService {
-  url: string = 'http://localhost:3000/api/store';
+  url = 'http://localhost:3000/api/store';
 
   constructor(private http: HttpClient) {}
 
-  getStore() {
-    return this.http.get<Store[]>(this.url);
-  }
+  // getStore(){
+  //   return this.http.get<Store[]>(this.url)
+  // };
 
   createStore(newStore: Store): Observable<any> {
     // On envoie la nouvelle plante au serveur
     console.log(newStore);
-    const token = localStorage.getItem('token'); // On récupère le token dans le localStorage
-    return this.http.post(this.url, newStore, {
-      headers: { Authorization: `Bearer ${token}` },
-    }); // On envoie le token dans le header de la requête
+    return this.http.post(this.url, newStore); // On envoie le token dans le header de la requête
+  }
+
+  getStoreByCategory(categoryId: string): Observable<Store[]> {
+    const urlWithCategory = `${this.url}/filter/${categoryId}`;
+    return this.http.get<Store[]>(urlWithCategory);
   }
 }

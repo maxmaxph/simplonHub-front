@@ -24,7 +24,7 @@ export class UserService {
     // je supprime le token de l'espace de stockage
     localStorage.removeItem('token');
 
-    // je redirige l'usager vers la page de connexion ou la page d'accueil
+    // je redirige l'usager vers la page de connexion
     this.router.navigate(['/login']);
   }
   getAllUsers(): Observable<any> {
@@ -32,6 +32,7 @@ export class UserService {
   }
 
   softDeleteUser(id: number): Observable<any> {
+    // On utilise un patch pour le soft delete
     console.log('je suis dans user.service.ts softDeleteUser id = ', id);
     return this.http.patch(`${this.url}user/soft-delete/${id}`, {});
   }
