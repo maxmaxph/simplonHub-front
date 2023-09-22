@@ -25,4 +25,9 @@ export class StoreService {
     const urlWithCategory = `${this.url}/filter/${categoryId}`;
     return this.http.get<Store[]>(urlWithCategory);
   }
+
+  // je cree une methode pour recuperer mes stores par leur ID
+  getStoreById(id: number): Observable<Store> {
+    return this.http.get<Store>(`${this.url}/${id}`);
+  }
 }
