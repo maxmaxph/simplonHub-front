@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Store } from 'src/app/models/store';
 import { StoreService } from 'src/app/services/store.service';
 
@@ -10,14 +11,18 @@ import { StoreService } from 'src/app/services/store.service';
 export class PageStoreComponent implements OnInit {
 
   tabStore: Store[] = []
+  categoryId!: string;
 
-  constructor(private storeService: StoreService) { }
+  constructor(private storeService: StoreService, private route: ActivatedRoute) { }
   ngOnInit(): void {
-    this.storeService.getStore().subscribe((data: Store[]) => {
-      this.tabStore = data;
-      console.log(this.tabStore); 
-      console.log(this.tabStore.map(e => e.comments[0] ? e.comments[0].note : 0));
-    })
+    this.route.params.subscribe(params => {
+      this.categoryId = params['categoryId'];
+      this.storeService.getStoreByCategory(this.categoryId).subscribe((data: Store[]) => {
+        this.tabStore = data;
+        console.log(this.tabStore); 
+        console.log(this.tabStore.map(e => e.comments[0] ? e.comments[0].note : 0));
+      })
+    });
 
   }
 }

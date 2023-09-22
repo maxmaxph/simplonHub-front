@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: "", redirectTo: 'home', pathMatch: 'full' },
   { path: "home", component: PageHomeComponent },
   { path: "login", component: PageConnectComponent },
-  { path: "store", component: PageStoreComponent, canActivate: [AuthGuard] },
+  { path: "store/:categoryId", component: PageStoreComponent, canActivate: [AuthGuard] },
   { path: "add-store", component: PageAddStoreComponent, canActivate: [AuthGuard] },
   { path: "admin", component: PageAdminComponent, canActivate: [AuthGuard] },
   { path: "subscribe", component: PageSubscribeComponent },

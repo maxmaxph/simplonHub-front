@@ -12,12 +12,17 @@ export class StoreService {
 
   constructor(private http: HttpClient) { }
 
-  getStore(){
-    return this.http.get<Store[]>(this.url)
-  };
+  // getStore(){
+  //   return this.http.get<Store[]>(this.url)
+  // };
 
    createStore(newStore: Store): Observable<any> { // On envoie la nouvelle plante au serveur
     console.log(newStore);
     return this.http.post(this.url, newStore); // On envoie le token dans le header de la requête
+  }
+
+  getStoreByCategory(categoryId: string): Observable<Store[]> {
+    const urlWithCategory = `${this.url}/filter/${categoryId}`;
+    return this.http.get<Store[]>(urlWithCategory);
   }
 }
