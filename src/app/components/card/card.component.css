@@ -12,6 +12,7 @@
     border-radius: 20px;
     transition: 0.5s;
     box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+    margin-bottom: 60px;
 }
 
  .card:hover {
@@ -92,12 +93,12 @@
 
 @media (max-width: 480px) {
      .card {
-        width: 230px;
+        width: 280px;
         border-radius: 15px;
     }
 
      .card .img-box {
-        width: 185px;
+        width: 200px;
         border-radius: 10px;
     }
 
