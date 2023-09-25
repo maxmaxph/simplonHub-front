@@ -21,6 +21,7 @@
       tabindex="-1"
       id="offcanvasNavbar"
       aria-labelledby="offcanvasNavbarLabel"
+      #offcanvas
     >
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">simplonHub</h5>
@@ -35,6 +36,9 @@
             src="/assets/img/login.png"
             alt="Logo de connexion"
             class="logo-connexion"
+            (click)="
+              closeOffcanvas(offcanvas); isUserLoggedIn ? onLogout() : null
+            "
           />
 
           <img
@@ -42,6 +46,7 @@
             src="/assets/img/logout.png"
             alt="Logo de déconnexion"
             class="logo-connexion"
+            (click)="closeOffcanvas(offcanvas); onLogout()"
           />
         </a>
         <button
@@ -65,7 +70,7 @@
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" [routerLink]="['/store']">
               <img
                 src="assets/img/commerce.png"
                 alt=""
@@ -122,6 +127,15 @@
             >
           </li>
         </ul>
+        <form class="d-flex mt-3" role="search">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="chercher"
+            aria-label="Search"
+          />
+          <button class="btn" type="submit">Chercher</button>
+        </form>
       </div>
     </div>
   </div>

@@ -7,8 +7,7 @@ import { Store } from 'src/app/models/store';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent {
+  @Input() 
+  store!:any;
 
-  @Input()
-  stores!: Store[];
 }
-

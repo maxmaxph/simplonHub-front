@@ -13,7 +13,8 @@
 .btn {
   background-color: #ce0033;
   color: #f7f7ff;
-  transition: background-color 0.3s; /* Animation douce lors du changement de couleur */
+  transition: background-color 0.3s;
+  /* Animation douce lors du changement de couleur */
 }
 
 .btn:hover {

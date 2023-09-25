@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
-import * as bootstrap from 'bootstrap'
+import * as bootstrap from 'bootstrap';
+import { phoneNumberValidator } from 'src/app/validators/phone-number.validators';
+
+
 
 @Component({
   selector: 'app-page-subscribe',
@@ -44,8 +47,4 @@ export class PageSubscribeComponent {
     window.location.href = 'login';
   }
   }
-
-function phoneNumberValidator(): any {
-  throw new Error('Function not implemented.');
-}
 

@@ -8,6 +8,9 @@ import { Store } from '../models/store';
   providedIn: 'root'
 })
 export class StoreService {
+  getStoreByCategory(categoryId: string) {
+    throw new Error('Method not implemented.');
+  }
   url: string = 'http://localhost:3000/api/store';
 
   constructor(private http: HttpClient) { }
