@@ -20,6 +20,7 @@ export class StoreListComponent {
   }
 
   fetchStores() {
+    // Récupérez les stores par catégorie
   this.storeService.getStoreByCategory(this.categoryId).subscribe((stores) => {
     console.log('je suis dans le fetchStores et j\'ai récupéré les stores', stores);
 
@@ -36,5 +37,4 @@ export class StoreListComponent {
     this.stores = stores;
   });
 }
-
 }

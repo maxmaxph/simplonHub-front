@@ -15,7 +15,7 @@
             <p *ngIf="store.comments && store.comments.length > 0">
                 {{ store.averageNote }}
             </p>
-            <a href="" class="btn">Voir plus</a>
+            <a [routerLink]="['/store/detail', store.id]" class="btn">Voir plus</a>
         </div>
     </div>
 </div>

@@ -21,6 +21,7 @@ import { PageAddStoreComponent } from './pages/page-add-store/page-add-store.com
 import { FormStoreComponent } from './components/form-store/form-store.component';
 import { PageAdminComponent } from './pages/page-admin/page-admin.component';
 import { AdmintableComponent } from './components/admintable/admintable.component';
+import { StoreDetailComponent } from './components/store-detail/store-detail.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { AdmintableComponent } from './components/admintable/admintable.componen
     PageAddStoreComponent,
     FormStoreComponent,
     PageAdminComponent,
-    AdmintableComponent
+    AdmintableComponent,
+    StoreDetailComponent
   ],
   imports: [
     BrowserModule,

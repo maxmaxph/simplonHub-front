@@ -16,6 +16,11 @@ export class StoreService {
     return this.http.get<Store[]>(`${this.url}/filter`)
   };
 
+  // je cree une methode pour recuperer mes stores par leur ID
+  getStoreById(id: number): Observable<Store> {
+    return this.http.get<Store>(`${this.url}/${id}`);
+  }
+
    createStore(newStore: Store): Observable<any> { // On envoie la nouvelle plante au serveur
     console.log(newStore);
     return this.http.post(this.url, newStore); // On envoie le token dans le header de la requête
