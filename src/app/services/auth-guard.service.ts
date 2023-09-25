@@ -18,7 +18,7 @@ export class AuthGuardService {
       'Content-Type': 'application/json',
     });
 
-    return this.http.post(`${this.apiUrl}`, { headers }).pipe(
+    return this.http.post(`${this.apiUrl}`,{}, { headers }).pipe(
       map((response) => {
         // On retourne la réponse du serveur
         console.log(
