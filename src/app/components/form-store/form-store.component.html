@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container ">
     <h2 class="mt-5 mb-4 text-center">Créer un nouvel établissement</h2>
     <form [formGroup]="formStore" (ngSubmit)="submit()" class="bg-light p-5 rounded shadow">
         <div class="row mb-3">
@@ -72,17 +72,6 @@
                 <label class="form-check-label" for="autre">Autre</label>
             </div>
         </div>
-
-        <div class="mb-3">
-            <label for="web" class="form-label">Lien Web</label>
-            <input type="url" class="form-control" id="web" formControlName="web" placeholder="https://">
-        </div>
-
-        <div class="mb-3">
-            <label for="map" class="form-label">Lien Map</label>
-            <input type="url" class="form-control" id="map" formControlName="map" placeholder="https://">
-        </div>
-        
 
         <div class="mb-3">
             <label for="image" class="form-label">Image</label>

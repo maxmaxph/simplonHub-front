@@ -12,6 +12,7 @@
     border-radius: 20px;
     transition: 0.5s;
     box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+    margin-bottom: 60px;
 }
 
  .card:hover {
@@ -62,7 +63,7 @@
 }
 
  .card .content h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     color: #ce0033;
 }
@@ -92,20 +93,28 @@
 
 @media (max-width: 480px) {
      .card {
-        width: 230px;
+        width: 310px;
         border-radius: 15px;
     }
 
      .card .img-box {
-        width: 185px;
+        width: 250px;
         border-radius: 10px;
     }
 
+    .card .content h2 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #ce0033;
+}
+
      .card .content p {
         font-size: 0.8rem;
+        margin-bottom: 0;
     }
 
      .card .content a {
         font-size: 0.9rem;
+        padding: 12px 25px;
     }
 }

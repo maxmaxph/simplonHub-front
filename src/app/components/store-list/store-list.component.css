@@ -1,10 +1,35 @@
-.container {
-    margin-top: 50px;
-    position: relative;
-    display: flex;
-    justify-content: center;
+.container{
     align-items: center;
+    margin-top: 150px;
+    margin-bottom: 50px;
+}
+.container-stores {
+    display: flex;
     flex-wrap: wrap;
-    gap: 100px 50px;
-    padding: 100px 50px;
+    gap: 20px;
+    align-items: center;
+    margin-top: 85px;
+    margin-bottom: 50px;
+}
+
+.store-card {
+    flex: 1 0 100%; /* Par défaut, les cartes prennent toute la largeur du conteneur */
+    max-width: 100%;
+    
+}
+
+/* Pour les écrans d'au moins 600px de large */
+@media (min-width: 600px) {
+    .store-card {
+        flex: 1 0 48%; /* Les cartes prennent environ la moitié de la largeur du conteneur, permettant deux cartes par ligne */
+        max-width: 48%;
+    }
+}
+
+/* Pour les écrans d'au moins 900px de large */
+@media (min-width: 900px) {
+    .store-card {
+        flex: 1 0 32%; /* Les cartes prennent environ un tiers de la largeur du conteneur, permettant trois cartes par ligne */
+        max-width: 32%;
+    }
 }

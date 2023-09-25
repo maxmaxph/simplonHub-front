@@ -1,20 +1,21 @@
-<div class="card" style="--clr: #009688">
-    <div class="img-box">
-        <img src="">
-    </div>
-    <div class="content">
-        <h2> {{ store.name }} </h2>
-        <p>
-            {{ store.description }}
-        </p>
-        <p *ngIf="store.categories[0]">
-            {{ store.categories[0].category }}
-        </p>
-        <p *ngIf="store.comments[0]">
-            {{ store.comments[0].note }}
-        </p>
-        <a [routerLink]="['/store', store.id]" class="btn">Voir plus</a>
 
+<div class="container">
+    <div class="card" style="--clr: #009688">
+        <div class="img-box">
+            <img [src]="imageUrl">
+        </div>
+        <div class="content">
+            <h2> {{ store.name }} </h2>
+            <p>
+                {{ store.description }}
+            </p>
+            <p *ngIf="store.categories && store.categories.length > 0">
+                {{ store.categories[0].category }}
+            </p>
+            <p *ngIf="store.comments && store.comments.length > 0">
+                {{ store.averageNote }}
+            </p>
+            <a [routerLink]="['/store/detail', store.id]" class="btn">Voir plus</a>
+        </div>
     </div>
 </div>
-

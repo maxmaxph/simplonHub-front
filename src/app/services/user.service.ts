@@ -32,7 +32,7 @@ export class UserService {
     return this.http.get(`${this.url}user`);
   }
 
-  softDeleteUser(id: number): Observable<any> {
+  softDeleteUser(id: number): Observable<any> { // On utilise un patch pour le soft delete
     console.log('je suis dans user.service.ts softDeleteUser id = ', id);
     return this.http.patch(`${this.url}user/soft-delete/${id}`, {});
   }

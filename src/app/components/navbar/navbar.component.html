@@ -1,131 +1,71 @@
 <nav class="navbar bg-body-tertiary fixed-top">
-  <div class="container-fluid">
-    <img
-      class="logo_navbar"
-      src="assets/img/logo_navbar.svg"
-      alt="logo simplonHub"
-      [routerLink]="['home']"
-    />
+    <div class="container-fluid">
+        <img class="logo_navbar" src="assets/img/logo_navbar.svg" alt="logo simplonHub" [routerLink]="['home']" />
 
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="offcanvas"
-      data-bs-target="#offcanvasNavbar"
-      aria-controls="offcanvasNavbar"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div
-      class="offcanvas offcanvas-end"
-      tabindex="-1"
-      id="offcanvasNavbar"
-      aria-labelledby="offcanvasNavbarLabel"
-    >
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">simplonHub</h5>
-        <!-- Logo de connexion cliquable pour le routing -->
-        <a
-          [routerLink]="isUserLoggedIn ? null : 'login'"
-          (click)="isUserLoggedIn ? onLogout() : null"
-          class="logo-link"
-        >
-          <img
-            *ngIf="!isUserLoggedIn"
-            src="/assets/img/login.png"
-            alt="Logo de connexion"
-            class="logo-connexion"
-          />
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel"
+            #offcanvas>
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">simplonHub</h5>
+                <!-- Logo de connexion cliquable pour le routing -->
+                <a [routerLink]="isUserLoggedIn ? null : 'login'" (click)="isUserLoggedIn ? onLogout() : null"
+                    class="logo-link">
+                    <img *ngIf="!isUserLoggedIn" src="/assets/img/login.png" alt="Logo de connexion"
+                        class="logo-connexion" (click)="closeOffcanvas(offcanvas); isUserLoggedIn ? onLogout() : null">
 
-          <img
-            *ngIf="isUserLoggedIn"
-            src="/assets/img/logout.png"
-            alt="Logo de déconnexion"
-            class="logo-connexion"
-          />
-        </a>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="offcanvas"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page"
-            [routerLink]="['home']"
-              ><img
-                src="assets/img/accueil.png"
-                alt=""
-                width="20"
-                height="20"
-              />
-              Accueil</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" [routerLink]="['store']">
-              <img
-                src="assets/img/commerce.png"
-                alt=""
-                width="20"
-                height="20"
-              />
+                    <img *ngIf="isUserLoggedIn" src="/assets/img/logout.png" alt="Logo de déconnexion"
+                        class="logo-connexion" (click)="closeOffcanvas(offcanvas); onLogout()">
 
-              Commerces
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"
-              ><img
-                src="assets/img/hebergement.png"
-                alt=""
-                width="20"
-                height="20"
-              />
-              Hebergements</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"
-              ><img
-                src="assets/img/restaurant.png"
-                alt=""
-                width="20"
-                height="20"
-              />
-              Restauration</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"
-              ><img src="assets/img/sortie.png" alt="" width="20" height="20" />
-              Sorties</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"
-              ><img src="assets/img/autre.png" alt="" width="20" height="20" />
-              Autres</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"
-            [routerLink]="['submit']"
-              ><img
-                src="assets/img/soumettre.png"
-                alt=""
-                width="20"
-                height="20"
-                
-              />
-              Soumettre un établissement</a
-            >
-          </li>
-        </ul>
-      </div>
+                </a>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" (click)="onLinkClick(offcanvas)" [routerLink]="['/store']">
+                            <img src="assets/img/accueil.png" alt="" width="20" height="20" />
+                            Accueil
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="onLinkClick(offcanvas)" [routerLink]="['/store', '1']" >
+                            <img src="assets/img/commerce.png"  alt="" width="20" height="20" />
+                            Commerces
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="onLinkClick(offcanvas)" [routerLink]="['/store', '2']">
+                            <img src="assets/img/hebergement.png" alt="" width="20" height="20" />
+                            Hebergements
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="onLinkClick(offcanvas)" [routerLink]="['/store', '3']">
+                            <img src="assets/img/restaurant.png" alt="" width="20" height="20" />
+                            Restauration
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="onLinkClick(offcanvas)" [routerLink]="['/store', '4']">
+                            <img src="assets/img/sortie.png" alt="" width="20" height="20" />
+                            Sorties
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="onLinkClick(offcanvas)" [routerLink]="['/store', '5']">
+                            <img src="assets/img/autre.png" alt="" width="20" height="20" />
+                            Autres
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="onLinkClick(offcanvas)" [routerLink]="['/add-store']" ><img src="assets/img/soumettre.png" alt="" width="20" height="20" />
+                            Soumettre un établissement</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-  </div>
 </nav>

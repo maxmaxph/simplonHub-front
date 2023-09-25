@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
-declare const bootstrap: any;
+// declare const bootstrap: any;
+import * as bootstrap from 'bootstrap';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -19,16 +20,20 @@ export class NavbarComponent {
   // methode pour fermer le menu à l'evenement click de se connecter
   closeOffcanvas(offcanvas: any): void {
     const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvas);
-    bsOffcanvas.hide();
+    if (bsOffcanvas) {
+      bsOffcanvas.hide();
+    }
 
     // je retire la classe 'show' pour cacher l'overlay
     const overlay = document.querySelector('.offcanvas-backdrop.fade.show');
     if (overlay) {
       overlay.classList.remove('show');
     }
-  
   }
-  
+
+  onLinkClick(offcanvas: any): void {
+    this.closeOffcanvas(offcanvas);
+  }
 
   //methode  de déconnection
   onLogout(): void {

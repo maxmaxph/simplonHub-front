@@ -11,13 +11,16 @@ import { PageInfosComponent } from './pages/page-infos/page-infos.component';
 import { PageAddStoreComponent } from './pages/page-add-store/page-add-store.component';
 import { PageAdminComponent } from './pages/page-admin/page-admin.component';
 import { StoreDetailComponent } from './components/store-detail/store-detail.component';
+import { StoreListComponent } from './components/store-list/store-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: PageHomeComponent },
   { path: 'login', component: PageConnectComponent },
-  { path: 'store', component: PageStoreComponent, canActivate: [AuthGuard] },
-  { path: 'store/:id', component: StoreDetailComponent, canActivate: [AuthGuard] },
+  { path: "store", component: PageStoreComponent, canActivate: [AuthGuard] },
+  { path: "store/:categoryId", component: PageStoreComponent, canActivate: [AuthGuard] },
+  { path: 'store/detail/:id', component: StoreDetailComponent, canActivate: [AuthGuard] },
+  { path: "add-store", component: PageAddStoreComponent, canActivate: [AuthGuard] },
   { path: 'subscribe', component: PageSubscribeComponent },
   { path: 'admin', component: PageAdminComponent, canActivate: [AuthGuard] },
   { path: 'info', component: PageInfosComponent },

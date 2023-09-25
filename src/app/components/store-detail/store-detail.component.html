@@ -1,67 +1,59 @@
 <div *ngIf="store" class="container store-detail-container">
+  <div class="row mb-4">
+    <div class="col-md-4">
+      <div class="card">
+        <img [src]="imageUrl" alt="{{ store.name }} image" class="card-img-top"/>
+      </div>
+    </div>
+    <div class="title col-md-8">
+      <h1 class="display-4">{{ store.name }}</h1>
+      <p *ngFor="let category of store.categories" class="list-group-item">
+        {{ category.category }}
+      </p>
 
-    
-    <div class="row mb-4">
-        <div class="col-md-4">
-            <div class="card">
-                <img [src]="store.picture_id" alt="{{ store.name }} image" class="card-img-top">
-            </div>
-        </div>
-        <div class="title col-md-8">
-            <h1 class="display-4">{{ store.name }}</h1>
-            <p *ngFor="let category of store.categories" class="list-group-item">{{ category.category }}
-            </p>
-            
-            
-            <div class="store-description my-4">
-                <h4>Description</h4>
-                <p class="text-muted">{{ store.description }}</p>
-            </div>
-            
-        </div>
+      <div class="store-description my-4">
+        <h4>Description</h4>
+        <p class="text-muted">{{ store.description }}</p>
+      </div>
     </div>
+  </div>
 
-    
-    <div class="row mb-4">
-        <div class="col-md-6">
-            
-            <div class="store-phone mb-3">
-                <h4>Téléphone</h4>
-                <p>{{ store.phone }}</p>
-            </div>
-            
-            
-            <div class="store-address mb-3">
-                <h4>Adresse</h4>
-                <address>
-                    {{ store.number }} {{ store.street }}<br>
-                    {{ store.zip }} {{ store.city }}
-                </address>
-            </div>
-        </div>
-        <div class="col-md-6">
-            
-            <div *ngIf="store.web" class="store-web mb-3">
-                <h4>Site Web</h4>
-                <a [href]="store.web" target="_blank">{{ store.web }}</a>
-            </div>
-            
-           
-            <div *ngIf="store.map" class="store-map mb-3">
-                <h4>Carte</h4>
-                <a [href]="store.map" target="_blank" class="btn ">Voir sur la carte</a>
-            </div>
-        </div>
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <div *ngIf="store.phone" class="store-phone mb-3">
+        <h4>Téléphone</h4>
+        <p>{{ store.phone }}</p>
+      </div>
+
+      <div class="store-address mb-3">
+        <h4>Adresse</h4>
+        <address>
+          {{ store.number }} {{ store.street }}<br />
+          {{ store.zip }} {{ store.city }}
+        </address>
+      </div>
     </div>
-    
-    
-    
-    
-    
-    <div class="store-comments">
-        <h4>Note</h4>
-        <ul class="list-group list-group-flush">
-            <li *ngFor="let comment of store.comments" class="list-group-item">{{ comment.note }}</li>
-        </ul>
+    <div class="col-md-6">
+      <div *ngIf="store.web" class="store-web mb-3">
+        <h4>Site Web</h4>
+        <a [href]="store.web" target="_blank">{{ store.web }}</a>
+      </div>
+
+      <div *ngIf="store.map" class="store-map mb-3">
+        <h4>Carte</h4>
+        <a [href]="store.map" target="_blank" class="btn">Voir sur la carte</a>
+      </div>
     </div>
+  </div>
+
+  <div class="store-comments">
+    <h4>Note</h4>
+    <ul class="list-group list-group-flush">
+      <li *ngFor="let comment of store.comments" class="list-group-item">
+        {{ comment.note }}
+      </li>
+    </ul>
+  </div>
+  
 </div>
+
