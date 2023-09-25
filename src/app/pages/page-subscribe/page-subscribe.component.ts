@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
-import * as bootstrap from 'bootstrap';
+import { Modal } from 'bootstrap';
 import { phoneNumberValidator } from 'src/app/validators/phone-number.validators';
-
-
 
 @Component({
   selector: 'app-page-subscribe',
@@ -37,14 +35,13 @@ export class PageSubscribeComponent {
 
       this.inscriptionForm.reset(); // On vide le formulaire
     }
-     const modalElement = document.getElementById('subscribeModal');
-     const modalInstance = new bootstrap.Modal(modalElement!);
-     modalInstance.show();
+    const modalElement = document.getElementById('subscribeModal');
+    const modalInstance = new Modal(modalElement!);
+    modalInstance.show();
   }
 
   goToHome() {
     close();
     window.location.href = 'login';
   }
-  }
-
+}

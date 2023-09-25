@@ -1,162 +1,88 @@
-<div class="container-subscribe">
+<div class="container mt-5 mb-5">
   <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header">Inscription</div>
+    <div class="col-md-6 col-sm-12">
+      <div class="card mt-5">
+        <div class="card-header text-center">Connexion</div>
         <div class="card-body">
-          <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()">
-            <div class="mb-3">
-              <label for="name" class="form-label">Nom</label>
+          <form [formGroup]="loginForm" (submit)="onSubmit()">
+            <div class="form-group mt-2">
+              <label for="email">Adresse email:</label>
               <input
-                type="text"
+                type="email"
                 class="form-control"
-                id="name"
-                formControlName="name"
-              />
-              <div
-                *ngIf="
-                  inscriptionForm.controls['name'].invalid &&
-                  inscriptionForm.controls['name'].touched
-                "
-                class="text-danger"
-              >
-                Le nom est requis
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="firstname" class="form-label">Prénom</label>
-              <input
-                type="text"
-                class="form-control"
-                id="firstname"
-                formControlName="firstname"
-              />
-              <div
-                *ngIf="
-                  inscriptionForm.controls['firstname'].invalid &&
-                  inscriptionForm.controls['firstname'].touched
-                "
-                class="text-danger"
-              >
-                Le prénom est requis
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="pseudo" class="form-label">Pseudo</label>
-              <input
-                type="text"
-                class="form-control"
-                id="prenom"
-                formControlName="pseudo"
-              />
-              <div
-                *ngIf="
-                  inscriptionForm.controls['pseudo'].invalid &&
-                  inscriptionForm.controls['pseudo'].touched
-                "
-                class="text-danger"
-              >
-                Le pseudo est requis
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="mail" class="form-label">Email</label>
-              <input
-                type="mail"
-                class="form-control"
-                id="mail"
+                id="email"
                 formControlName="mail"
+                required
               />
-              <div
-                *ngIf="
-                  inscriptionForm.controls['mail'].invalid &&
-                  inscriptionForm.controls['mail'].touched
-                "
-                class="text-danger"
-              >
-                L'email est requis et doit être valide
-              </div>
             </div>
-
-            <div class="mb-3">
-              <label for="password" class="form-label">Mot de passe</label>
+            <div class="form-group mt-2">
+              <label for="password">Mot de passe:</label>
               <input
                 type="password"
                 class="form-control"
                 id="password"
                 formControlName="password"
+                required
               />
-              <div
-                *ngIf="
-                  inscriptionForm.controls['password'].invalid &&
-                  inscriptionForm.controls['password'].touched
-                "
-                class="text-danger"
-              >
-                Le mot de passe est requis
-              </div>
             </div>
-
-            <div class="mb-3">
-              <label for="phone" class="form-label">Téléphone</label>
-              <input
-                type="text"
-                class="form-control"
-                id="prenom"
-                formControlName="phone"
-              />
-              <div
-                *ngIf="
-                  inscriptionForm.controls['phone'].invalid &&
-                  inscriptionForm.controls['phone'].touched
-                "
-                class="text-danger"
-              >
-                téléphone
-              </div>
-            </div>
-
-            <div class="form-button">
-              <button
-                class="btn btn-primary"
-                type="submit"
-                [disabled]="inscriptionForm.invalid"
-              >
-                S'inscrire
-              </button>
-
-              <button
-                type="button"
-                class="btn btn-secondary"
-                (click)="goToHome()"
-                data-bs-dismiss="modal"
-              >
-                Se connecter
-              </button>
-            </div>
+            <button
+              type="submit"
+              class="btn mt-3"
+              [disabled]="!loginForm.valid"
+            >
+              Se connecter
+            </button>
           </form>
         </div>
       </div>
     </div>
   </div>
 </div>
-
+<!-- Modal -->
 <div
   class="modal fade"
-  id="subscribeModal"
+  id="loginModal"
   tabindex="-1"
-  aria-labelledby="subscribeModalLabel"
+  aria-labelledby="loginModalLabel"
   aria-hidden="true"
 >
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="subscribeModalLabel">
-          Inscription réussie
-        </h5>
+        <h5 class="modal-title" id="loginModalLabel">Connexion réussie</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">Vous êtes maintenant connecté!</div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+          [routerLink]="['/home']"
+        >
+          Fermer
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Error Modal -->
+<div
+  class="modal fade"
+  id="errorModal"
+  tabindex="-1"
+  aria-labelledby="errorModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="errorModalLabel">Erreur de connexion</h5>
         <button
           type="button"
           class="btn-close"
@@ -165,17 +91,10 @@
         ></button>
       </div>
       <div class="modal-body">
-        Vous êtes maintenant inscrit sur simplonHub ! Veuillez vous connecter
-        pour accéder à votre compte ! En cliquant sur le bouton ci-dessous, vous
-        serez redirigé vers la page de connexion.
+        Une erreur est survenue lors de la connexion. Veuillez réessayer.
       </div>
       <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-secondary"
-          (click)="goToHome()"
-          data-bs-dismiss="modal"
-        >
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
           Fermer
         </button>
       </div>

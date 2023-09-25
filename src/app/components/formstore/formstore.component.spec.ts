@@ -1,16 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormStoreComponent } from './formstore.component';
 
-import { FormstoreComponent } from './formstore.component';
 
-describe('FormstoreComponent', () => {
-  let component: FormstoreComponent;
-  let fixture: ComponentFixture<FormstoreComponent>;
+
+describe('FormStoreComponent', () => {
+  let component: FormStoreComponent;
+  let fixture: ComponentFixture<FormStoreComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [FormstoreComponent]
+      declarations: [FormStoreComponent]
     });
-    fixture = TestBed.createComponent(FormstoreComponent);
+    fixture = TestBed.createComponent(FormStoreComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,13 +1,11 @@
-.container-subscribe {
+.store-detail-container {
   margin-top: 100px;
   margin-bottom: 50px;
 }
 
-.form-button {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: space-between;
+h1 {
+  font-weight: 500;
+  color: #ce0033;
 }
 
 .btn {
@@ -19,4 +17,12 @@
 .btn:hover {
   background-color: #ff7094;
   color: #29000a;
+}
+
+i {
+  color: #ce0033;
+}
+
+.title {
+  background-color: rgb(247, 247, 247);
 }

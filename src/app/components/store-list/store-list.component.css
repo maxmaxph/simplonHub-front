@@ -1,0 +1,18 @@
+.container {
+  margin-top: 150px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 100px 50px;
+}
+
+@media (max-width: 480px) {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -59,15 +59,14 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page"
-              ><img
-                src="assets/img/accueil.png"
-                alt=""
-                width="20"
-                height="20"
-              />
-              Accueil</a
+            <a
+              class="nav-link active"
+              aria-current="page"
+              [routerLink]="['/home']"
             >
+              <img src="assets/img/accueil.png" alt="" width="20" height="20" />
+              Accueil
+            </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/store']">
@@ -77,46 +76,56 @@
                 width="20"
                 height="20"
               />
-
+              Tous les établissements
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/store', '1']">
+              <img
+                src="assets/img/commerce.png"
+                alt=""
+                width="20"
+                height="20"
+              />
               Commerces
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"
-              ><img
+            <a class="nav-link" [routerLink]="['/store', '2']">
+              <img
                 src="assets/img/hebergement.png"
                 alt=""
                 width="20"
                 height="20"
               />
-              Hebergements</a
-            >
+              Hebergements
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"
-              ><img
+            <a class="nav-link" [routerLink]="['/store', '3']">
+              <img
                 src="assets/img/restaurant.png"
                 alt=""
                 width="20"
                 height="20"
               />
-              Restauration</a
-            >
+              Restauration
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"
-              ><img src="assets/img/sortie.png" alt="" width="20" height="20" />
-              Sorties</a
-            >
+            <a class="nav-link" [routerLink]="['/store', '4']">
+              <img src="assets/img/sortie.png" alt="" width="20" height="20" />
+              Sorties
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"
-              ><img src="assets/img/autre.png" alt="" width="20" height="20" />
-              Autres</a
-            >
+            <a class="nav-link" [routerLink]="['/store', '5']">
+              <img src="assets/img/autre.png" alt="" width="20" height="20" />
+              Autres
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"
+            <a class="nav-link" [routerLink]="['/add-store']"
               ><img
                 src="assets/img/soumettre.png"
                 alt=""
@@ -140,3 +149,4 @@
     </div>
   </div>
 </nav>
+```
