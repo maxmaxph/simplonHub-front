@@ -9,11 +9,14 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { PageStoreComponent } from './pages/page-store/page-store.component';
 import { PageAddStoreComponent } from './pages/page-add-store/page-add-store.component';
 import { PageAdminComponent } from './pages/page-admin/page-admin.component';
+import { StoreDetailComponent } from './components/store-detail/store-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: PageHomeComponent },
   { path: 'login', component: PageConnectComponent },
+  { path: 'store', component: PageStoreComponent, canActivate: [AuthGuard] },
+  { path: 'store/detail/:id', component: StoreDetailComponent, canActivate: [AuthGuard]},
   {
     path: 'store/:categoryId',
     component: PageStoreComponent,

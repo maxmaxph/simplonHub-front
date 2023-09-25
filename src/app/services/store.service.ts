@@ -11,9 +11,9 @@ export class StoreService {
 
   constructor(private http: HttpClient) {}
 
-  // getStore(){
-  //   return this.http.get<Store[]>(this.url)
-  // };
+  getStore() {
+    return this.http.get<Store[]>(`${this.url}/filter`);
+  }
 
   createStore(newStore: Store): Observable<any> {
     // On envoie la nouvelle plante au serveur
@@ -26,7 +26,6 @@ export class StoreService {
     return this.http.get<Store[]>(urlWithCategory);
   }
 
-  // je cree une methode pour recuperer mes stores par leur ID
   getStoreById(id: number): Observable<Store> {
     return this.http.get<Store>(`${this.url}/${id}`);
   }

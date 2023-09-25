@@ -13,9 +13,9 @@
                 {{ store.categories[0].category }}
             </p>
             <p *ngIf="store.comments && store.comments.length > 0">
-                {{ store.comments[0].note }}
+                {{ store.averageNote }}
             </p>
-            <a [routerLink]="['/store', store.id]" class="btn">Voir plus</a>
+            <a [routerLink]="['/store/detail', store.id]" class="btn">Voir plus</a>
         </div>
     </div>
 </div>

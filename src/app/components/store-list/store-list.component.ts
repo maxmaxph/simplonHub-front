@@ -28,6 +28,19 @@ export class StoreListComponent {
           stores
         );
 
+        // Calculez la note moyenne pour chaque store
+        stores.forEach((store) => {
+          if (store.comments && store.comments.length > 0) {
+            const totalNotes = store.comments.reduce(
+              (acc: any, comment: { note: any }) => acc + comment.note,
+              0
+            );
+            store.averageNote = Math.round(totalNotes / store.comments.length); // On arrondit à 1 décimale
+          } else {
+            store.averageNote = 'Pas de note';
+          }
+        });
+
         this.stores = stores;
       });
   }

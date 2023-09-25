@@ -4,6 +4,7 @@ export interface Store {
   phone: string;
   categories: any;
   comments: any;
+  averageNote?: number | string;
   number: string | null;
   street: string | null;
   city: string | null;
