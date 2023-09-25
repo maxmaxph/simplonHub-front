@@ -12,9 +12,9 @@ export class StoreService {
 
   constructor(private http: HttpClient) { }
 
-  // getStore(){
-  //   return this.http.get<Store[]>(this.url)
-  // };
+  getStore(){
+    return this.http.get<Store[]>(`${this.url}/filter`)
+  };
 
    createStore(newStore: Store): Observable<any> { // On envoie la nouvelle plante au serveur
     console.log(newStore);

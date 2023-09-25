@@ -17,12 +17,17 @@ export class PageStoreComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.categoryId = params['categoryId'];
-      this.storeService.getStoreByCategory(this.categoryId).subscribe((data: Store[]) => {
-        this.tabStore = data;
-        console.log(this.tabStore); 
-        console.log(this.tabStore.map(e => e.comments[0] ? e.comments[0].note : 0));
-      })
+      if (!this.categoryId) {
+        this.storeService.getStore().subscribe((data: Store[]) => {
+          this.tabStore = data;
+        })
+      } else {
+        this.storeService.getStoreByCategory(this.categoryId).subscribe((data: Store[]) => {
+          this.tabStore = data;
+          console.log(this.tabStore); 
+          console.log(this.tabStore.map(e => e.comments[0] ? e.comments[0].note : 0));
+        })
+      }
     });
-
   }
 }
