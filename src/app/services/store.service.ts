@@ -16,6 +16,7 @@ categoryImages: { [key: string]: string } = {
   "2": "assets/img/img_category/hebergement.jpg",
   "3": "assets/img/img_category/restaurant.jpg",
   "4": "assets/img/img_category/sortie.jpg",
+  "5": "assets/img/img_category/autre.jpg"
 };
   constructor(private http: HttpClient) {}
   getStore(){

@@ -49,7 +49,7 @@
                   <li class="mb-2">
                       <a class="text-muted" [routerLink]="['login']">Se connecter</a>
                   </li>
-                  <li class="mb-2"><a class="text-muted">Se déconnecter</a></li>
+                  <li class="mb-2"><a class="text-muted cursor-pointer" (click)="onLogout()">Se déconnecter</a></li>
                   <li class="mb-2"><a [routerLink]="['/subscribe']" class="text-muted">S'inscrire</a></li>
                   <li class="mb-2"><a class="text-muted" [routerLink]="['/store']">Tous les établissments</a></li>
                   <li class="list-inline">

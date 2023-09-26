@@ -25,7 +25,7 @@ export class StoreDetailComponent implements OnInit {
             this.store = store;
             if(this.store && this.store.categories && this.store.categories.length > 0) {
               this.imageUrl = this.storeService.getCategoryImageById(this.store.categories[0].id.toString());
-            }
+              }
           });
         }
       }
