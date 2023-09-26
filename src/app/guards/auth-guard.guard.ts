@@ -1,16 +1,21 @@
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { catchError, map } from 'rxjs/operators';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { AuthGuardService } from '../services/auth-guard.service';
+import jwtDecode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
 
+  private currentUserSubject = new BehaviorSubject<any>({});
+  public currentUser = this.currentUserSubject.asObservable();
+
   constructor(private authService: AuthGuardService, private router: Router) {}
 
+ 
   canActivate( // On vérifie si le token est valide
     route: ActivatedRouteSnapshot, 
     state: RouterStateSnapshot
@@ -51,5 +56,19 @@ export class AuthGuard implements CanActivate {
         return of(false);
       })
     );
+    
   } 
+  // Methode pour decoder le token 
+  setUserFromToken(token: string): void {
+    console.log('setUserFromToken is called');
+    const decodedToken: any = jwtDecode(token);
+    console.log('decodedToken:', decodedToken);
+    this.currentUserSubject.next(decodedToken);
+  }
+  initializeUser() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.setUserFromToken(token);
+    }
+}
 }

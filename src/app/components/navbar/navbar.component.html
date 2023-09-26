@@ -64,12 +64,9 @@
                         <a class="nav-link" (click)="onLinkClick(offcanvas)" [routerLink]="['/add-store']" ><img src="assets/img/soumettre.png" alt="" width="20" height="20" />
                             Soumettre un établissement</a>
                     </li>
-                    <!-- <li class="nav-item" *ngIf=" === 2">
-                        <a class="nav-link" (click)="onLinkClick(offcanvas)" [routerLink]="['/admin-interface']">
-                            <img src="assets/img/admin.png" alt="Admin Icon" width="20" height="20" />
-                            Interface Admin
-                        </a>
-                    </li> -->
+                    <li class="nav-item" *ngIf="roleId === 2">
+                        <a class="nav-link" [routerLink]="['/admin']">Admin</a>
+                      </li>
                 </ul>
             </div>
         </div>
