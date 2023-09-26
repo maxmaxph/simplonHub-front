@@ -44,4 +44,11 @@ categoryImages: { [key: string]: string } = {
       headers: { Authorization: `Bearer ${token}` },
     }); // On envoie le token dans le header de la requête
   }
+  deleteStore(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.url}/${id}`);
+  }
+  
+  updateStore(updatedStore: Store): Observable<Store> {
+    return this.http.put<Store>(`${this.url}/${updatedStore.id}`, updatedStore);
+  }
 }

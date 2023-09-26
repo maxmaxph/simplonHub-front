@@ -1,5 +1,5 @@
 <div class="container ">
-    <h2 class="mb-4 text-center">Liste des Utilisateurs</h2>
+    <h2 class="mb-4 text-center">Liste des utilisateurs</h2>
     <table class="table table-striped table-bordered table-hover shadow">
         <thead class="table-dark">
             <tr>
@@ -29,3 +29,54 @@
         </tbody>
     </table>
 </div>
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Liste des établissments</h2>
+    <table class="table table-striped table-bordered table-hover shadow">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Description</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let store of stores; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ store.name }}</td>
+          <td>{{ store.description }}</td>
+          <td>
+            <button class="btn btn-danger btn-sm" (click)="deleteStore(store.id)">
+              <i class="fa fa-trash" aria-hidden="true"></i> Supprimer
+            </button>
+            <!-- <button class="btn btn-warning btn-sm" (click)="updateStore(store)">
+              <i class="fa fa-pencil-alt" aria-hidden="true"></i> Mettre à jour
+            </button> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- modal store ou user supprimé -->
+  <div *ngIf="isModalVisible" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            {{ deletedEntityType === 'user' ? 'Utilisateur' : 'Store' }} Supprimé
+          </h5>
+          <button type="button" class="close" (click)="isModalVisible = false" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Le {{ deletedEntityType === 'user' ? 'utilisateur' : 'store' }} a bien été supprimé!</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn" (click)="isModalVisible = false">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
