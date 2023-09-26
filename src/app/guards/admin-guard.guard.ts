@@ -3,11 +3,12 @@ import { catchError, map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { AuthGuardService } from '../services/auth-guard.service';
+import jwtDecode from "jwt-decode"
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class AdminGuard implements CanActivate {
 
   constructor(private authService: AuthGuardService, private router: Router) {}
 
@@ -27,13 +28,25 @@ export class AuthGuard implements CanActivate {
     return this.authService.validateToken(token).pipe(
     map(response => { 
       console.log('je suis dans le guard et la reponse du service : ', response);
-
+      
+      // recupération des données dans le token 
+      const decodedToken: any = jwtDecode(token);
+      console.log('decodedToken:', decodedToken);       
+            
       // Vérifiez d'abord la validité du token
       if (!response || response.valid !== true) { 
         console.log('je suis dans le guard et le token est invalide');
         this.router.navigate(['/login']);
         return false;
       }
+
+      // Ensuite, vérifiez si le rôle est admin
+      if (decodedToken.roleId !== 2) {
+        console.log('je suis dans le guard et l\'utilisateur n\'est pas admin');
+        this.router.navigate(['/']);
+        return false;
+      }
+      
 
       // Ensuite, vérifiez si l'utilisateur est supprimé
       if (response.isDeleted === true) {

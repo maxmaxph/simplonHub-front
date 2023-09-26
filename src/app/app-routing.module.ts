@@ -13,6 +13,7 @@ import { PageAdminComponent } from './pages/page-admin/page-admin.component';
 import { StoreDetailComponent } from './components/store-detail/store-detail.component';
 import { StoreListComponent } from './components/store-list/store-list.component';
 import { StoreEditComponent } from './components/store-edit/store-edit.component';
+import { AdminGuard } from './guards/admin-guard.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -24,7 +25,7 @@ const routes: Routes = [
   { path: 'store-edit/:id', component: StoreEditComponent, canActivate: [AuthGuard] },
   { path: "add-store", component: PageAddStoreComponent, canActivate: [AuthGuard] },
   { path: 'subscribe', component: PageSubscribeComponent },
-  { path: 'admin', component: PageAdminComponent, canActivate: [AuthGuard] },
+  { path: 'admin', component: PageAdminComponent, canActivate: [AuthGuard,AdminGuard] },//je combine les deux guards
   { path: 'info', component: PageInfosComponent },
   {
     path: 'submit',

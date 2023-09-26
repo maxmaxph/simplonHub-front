@@ -9,13 +9,15 @@ import * as bootstrap from 'bootstrap';
 })
 export class NavbarComponent {
   isUserLoggedIn = false;
+ 
   constructor(private userService: UserService) {}
-
+  
   ngOnInit() {
     // je suis l'état de connection de l'usager
     console.log('isuserLoggedIn', this.isUserLoggedIn);
 
     this.isUserLoggedIn = !!localStorage.getItem('token');
+    
   }
   // methode pour fermer le menu à l'evenement click de se connecter
   closeOffcanvas(offcanvas: any): void {
