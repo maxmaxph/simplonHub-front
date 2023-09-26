@@ -29,6 +29,8 @@ export class StoreEditComponent implements OnInit {
     city: [''],
     zip: [''],
     description: [''],
+    web: ['', [Validators.pattern('https?://.+')]], // Validator pour s'assurer que c'est une URL valide.
+    map: ['', [Validators.pattern('https?://.+')]], // Validator pour s'assurer que c'est une URL valide.
     image: [''],
     commerce: [false],
     hebergement: [false],

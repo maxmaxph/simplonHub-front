@@ -13,3 +13,16 @@ body {
     align-items: center;
     min-height: 100vh;
 }
+
+.btn {
+    background-color: #ce0033;
+    color: #f7f7ff;
+    transition: background-color 0.3s; /* Animation douce lors du changement de couleur */
+  }
+  
+  .btn:hover {
+    background-color: #f7f7ff;
+    color: #29000a;
+    box-shadow: 0 5px 15px #000;
+  }
+  

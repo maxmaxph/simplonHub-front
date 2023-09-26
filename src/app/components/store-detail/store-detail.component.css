@@ -32,3 +32,16 @@ i{
     align-items: center;
     
   }
+
+  @media (max-width: 768px) {
+    .store.name,
+    .store-description p, 
+    .store-phone p, 
+    .store-address address, 
+    .store-web a, 
+    .store-comments .list-group-item {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+  }
+  

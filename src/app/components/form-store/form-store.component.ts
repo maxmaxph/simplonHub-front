@@ -4,6 +4,8 @@ import { Store } from 'src/app/models/store';
 import { StoreService } from 'src/app/services/store.service';
 import { phoneNumberValidator } from 'src/app/vadidators/phone-number.validator';
 import jwt_decode from 'jwt-decode';
+import { Modal } from 'bootstrap';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,9 +14,12 @@ import jwt_decode from 'jwt-decode';
   styleUrls: ['./form-store.component.css']
 })
 export class FormStoreComponent {
-
-  constructor(private formBuilder: FormBuilder, private storeService: StoreService) { }
   
+
+  constructor(private formBuilder: FormBuilder, private storeService: StoreService, private router: Router,) { }
+  redirectToStore() {
+    this.router.navigate(['/store']); // Assurez-vous que la route est correcte.
+  }
   formStore: FormGroup = this.formBuilder.group({
  
     name: ['', [Validators.required ]],
@@ -24,6 +29,8 @@ export class FormStoreComponent {
     city: [''],
     zip: [''],
     description: [''],
+    web: ['', [Validators.pattern('https?://.+')]], // Validator pour s'assurer que c'est une URL valide.
+    map: ['', [Validators.pattern('https?://.+')]], // Validator pour s'assurer que c'est une URL valide.
     image: [''],
     commerce: [false],
     hebergement: [false],
@@ -65,12 +72,18 @@ export class FormStoreComponent {
         newStore.user_id = userId; // On ajoute l'id de l'utilisateur
       }
       
-      console.log(newStore);
+     
 
       this.storeService.createStore(newStore).subscribe(() => { 
-        console.log("mise à jour effectué");  
-        console.log("submit form store", this.formStore.value);
-        this.formStore.reset(); // On vide le formulaire
-      })
+        console.log("mise à jour effectuée");  
+        const submissionModalElement = document.getElementById('submissionModal') as HTMLElement;
+        const submissionModal = new Modal(submissionModalElement);
+        submissionModal.show();
+        this.formStore.reset(); // Reset le formulaire si nécessaire
+      });
+
+        
+           
   }
+  
 }
