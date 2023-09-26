@@ -22,6 +22,7 @@ import { FormStoreComponent } from './components/form-store/form-store.component
 import { AdmintableComponent } from './components/admintable/admintable.component';
 import { PageAdminComponent } from './pages/page-admin/page-admin.component';
 import { StoreDetailComponent } from './components/store-detail/store-detail.component';
+import { StoreEditComponent } from './components/store-edit/store-edit.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { StoreDetailComponent } from './components/store-detail/store-detail.com
     AdmintableComponent,
     PageAdminComponent,
     StoreDetailComponent,
+    StoreEditComponent,
     
   ],
   imports: [

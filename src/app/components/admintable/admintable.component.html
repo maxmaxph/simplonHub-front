@@ -36,6 +36,7 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">Nom</th>
+          <th scope="col">Catégorie</th>
           <th scope="col">Description</th>
           <th scope="col">Actions</th>
         </tr>
@@ -44,15 +45,19 @@
         <tr *ngFor="let store of stores; let i = index">
           <th scope="row">{{ i + 1 }}</th>
           <td>{{ store.name }}</td>
+          <td *ngFor="let category of store.categories" class="list-group-item">
+            {{ category.category }}</td>
           <td>{{ store.description }}</td>
+
           <td>
             <button class="btn btn-danger btn-sm" (click)="deleteStore(store.id)">
               <i class="fa fa-trash" aria-hidden="true"></i> Supprimer
             </button>
-            <!-- <button class="btn btn-warning btn-sm" (click)="updateStore(store)">
-              <i class="fa fa-pencil-alt" aria-hidden="true"></i> Mettre à jour
-            </button> -->
+            <button class="btn btn-warning btn-sm" (click)="navigateToEdit(store.id)">
+              <i class="fa fa-pencil-alt" aria-hidden="true"></i> Éditer
+            </button>
           </td>
+          
         </tr>
       </tbody>
     </table>

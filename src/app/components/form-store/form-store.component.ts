@@ -55,7 +55,7 @@ export class FormStoreComponent {
     return categories;
   }
 
-    submit() { // Envoi du formulaire de création d'une nouvelle plante
+    submit() { // Envoi du formulaire de création
       const token = localStorage.getItem('token');
       const newStore: Store = this.formStore.value; // On récupère les données du formulaire
       newStore.categories = this.getSelectedCategories(); // On ajoute les catégories sélectionnées
@@ -64,6 +64,9 @@ export class FormStoreComponent {
         const userId = decodedToken.userId;
         newStore.user_id = userId; // On ajoute l'id de l'utilisateur
       }
+      
+      console.log(newStore);
+
       this.storeService.createStore(newStore).subscribe(() => { 
         console.log("mise à jour effectué");  
         console.log("submit form store", this.formStore.value);

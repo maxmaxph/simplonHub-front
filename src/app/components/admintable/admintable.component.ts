@@ -5,6 +5,7 @@ import localeFr from '@angular/common/locales/fr';
 import { UserService } from 'src/app/services/user.service';
 import { StoreService } from 'src/app/services/store.service';
 import { Store } from 'src/app/models/store';
+import { Router } from '@angular/router';
 registerLocaleData(localeFr, 'fr');
 
 @Component({
@@ -20,7 +21,7 @@ export class AdmintableComponent implements OnInit {
   isModalVisible: boolean = false;
   deletedEntityType: string = ''; // 'user' ou 'store' pour la modal
 
-  constructor(private userService: UserService, private storeService: StoreService) {}
+  constructor(private userService: UserService, private storeService: StoreService, private router: Router) {}
   ngOnInit(): void {
     // ...
     this.storeService.getStore().subscribe((stores) => this.stores = stores);
@@ -58,4 +59,9 @@ export class AdmintableComponent implements OnInit {
 closeModal() {
   this.isModalVisible = false;
 }
+//méthode pour naviguer vers le store edit
+navigateToEdit(storeId: number) {
+  this.router.navigate(['/store-edit', storeId]);
+}
+
 }

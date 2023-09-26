@@ -49,6 +49,6 @@ categoryImages: { [key: string]: string } = {
   }
   
   updateStore(updatedStore: Store): Observable<Store> {
-    return this.http.put<Store>(`${this.url}/${updatedStore.id}`, updatedStore);
+    return this.http.patch<Store>(`${this.url}/${updatedStore.id}`, updatedStore);
   }
 }
