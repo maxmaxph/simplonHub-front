@@ -11,7 +11,11 @@
          <div class="bg_trans">
         <h5>L'Appli des apprenants  par des apprenants</h5>
         <p>les bonnes adresses autour de l'école.</p></div>
-        <button class="btn m-3" [routerLink]="['/login']">Se connecter</button> <button class="btn m-3" [routerLink]="['/subscribe']" >S'inscrire</button>
+        <!-- boutons qui disparaissent quand je suis loggé -->
+       <div class="mr-5 ml-5">
+        <button *ngIf="!isUserLoggedIn" class="btn m-3" [routerLink]="['/login']" >Se connecter</button>
+        <button *ngIf="!isUserLoggedIn" class="btn m-3" [routerLink]="['/subscribe']" >S'inscrire</button>
+      </div>
       </div>
     </div>
     <div class="carousel-item">
@@ -21,10 +25,16 @@
       <div class="bg_trans">
         <h5>Découvrez, connectez, vivez</h5>
         <p>simplonHub, votre guide ultime pour une expérience Simplon à Montreuil sans tracas.</p></div>
-        <div class="mr-5 ml-5"><button class="btn m-3 " [routerLink]="['/login']">Se connecter</button> <button class="btn m-3" [routerLink]="['/subscribe']" >S'inscrire</button> </div>
+       <!-- boutons qui disparaissent quand je suis loggé -->
+       <div class="mr-5 ml-5">
+        <button *ngIf="!isUserLoggedIn" class="btn m-3" [routerLink]="['/login']" >Se connecter</button>
+        <button *ngIf="!isUserLoggedIn" class="btn m-3" [routerLink]="['/subscribe']" >S'inscrire</button>
+      </div>
+
       </div>
     </div>
       </div>
+      
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
@@ -33,4 +43,5 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
+
 </div>

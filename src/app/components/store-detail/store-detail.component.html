@@ -2,11 +2,7 @@
   <div class="row mb-4">
     <div class="col-md-4">
       <div class="card">
-        <img
-          [src]="store.picture_id"
-          alt="{{ store.name }} image"
-          class="card-img-top"
-        />
+        <img [src]="imageUrl" alt="{{ store.name }} image" class="card-img-top"/>
       </div>
     </div>
     <div class="title col-md-8">
@@ -24,7 +20,7 @@
 
   <div class="row mb-4">
     <div class="col-md-6">
-      <div class="store-phone mb-3">
+      <div *ngIf="store.phone" class="store-phone mb-3">
         <h4>Téléphone</h4>
         <p>{{ store.phone }}</p>
       </div>
@@ -58,8 +54,8 @@
       </li>
     </ul>
   </div>
-
-  <button type="button" class="btn" (click)="goBack()">
-    Retour
-  </button>
+  <div class="retour">
+  <a (click)="goBack()" target="_blank" class="btn">Retour</a>
 </div>
+</div>
+

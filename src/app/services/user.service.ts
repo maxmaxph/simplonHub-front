@@ -24,9 +24,10 @@ export class UserService {
     // je supprime le token de l'espace de stockage
     localStorage.removeItem('token');
 
-    // je redirige l'usager vers la page de connexion
+    // je redirige l'usager vers la page de connexion ou la page d'accueil
     this.router.navigate(['/login']);
   }
+
   getAllUsers(): Observable<any> {
     return this.http.get(`${this.url}user`);
   }

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container ">
     <h2 class="mt-5 mb-4 text-center">Créer un nouvel établissement</h2>
     <form [formGroup]="formStore" (ngSubmit)="submit()" class="bg-light p-5 rounded shadow">
         <div class="row mb-3">
@@ -73,13 +73,40 @@
             </div>
         </div>
 
-        <div class="mb-3">
-            <label for="image" class="form-label">Image</label>
-            <input type="file" class="form-control" id="image" formControlName="image">
-        </div>
+           <!-- Web Link -->
+<div class="mb-3">
+    <label for="web" class="form-label">Site Web</label>
+    <input type="url" class="form-control" id="web" formControlName="web" placeholder="Entrez l'URL du site web">
+  </div>
+  
+  <!-- Map Link -->
+  <div class="mb-3">
+    <label for="map" class="form-label">Lien Google Map</label>
+    <input type="url" class="form-control" id="map" formControlName="map" placeholder="Entrez l'URL de la carte">
+  </div> 
 
         <div class="text-center">
             <button type="submit" class="btn btn-primary btn-lg" [disabled]="formStore.invalid">Soumettre</button>
         </div>
     </form>
 </div>
+
+<!-- modal de soumission -->
+
+<div class="modal fade" id="submissionModal" tabindex="-1" aria-labelledby="submissionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="submissionModalLabel">Soumission réussie</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Votre établissement a été soumis et vous êtes seul responsable de son contenu. L'équipe se réserve le droit de le modifier ou de le supprimer.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="redirectToStore()">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

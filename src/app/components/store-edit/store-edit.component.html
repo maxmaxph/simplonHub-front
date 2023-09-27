@@ -1,0 +1,99 @@
+<div class="container" *ngIf="storeForm">
+    <h2 class="mt-5 mb-4 text-center">Mettre à jour l'établissment</h2>
+    <form [formGroup]="storeForm" (ngSubmit)="onSubmit()" class="bg-light p-5 rounded shadow">
+      
+      <!-- Name & Phone -->
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="name" class="form-label">Nom</label>
+          <input type="text" class="form-control" id="name" formControlName="name" placeholder="Entrez le nom" required>
+        </div>
+        <div class="col-md-6">
+          <label for="phone" class="form-label">Téléphone</label>
+          <input type="text" class="form-control" id="phone" formControlName="phone" placeholder="Entrez le téléphone" required>
+        </div>
+      </div>
+      
+      <!-- Address -->
+      <div class="row mb-3">
+        <div class="col-md-2">
+          <label for="number" class="form-label">Numéro</label>
+          <input type="text" class="form-control" id="number" formControlName="number" placeholder="Numéro">
+        </div>
+        <div class="col-md-4">
+          <label for="street" class="form-label">Rue</label>
+          <input type="text" class="form-control" id="street" formControlName="street" placeholder="Entrez la rue">
+        </div>
+        <div class="col-md-4">
+          <label for="city" class="form-label">Ville</label>
+          <input type="text" class="form-control" id="city" formControlName="city" placeholder="Entrez la ville">
+        </div>
+        <div class="col-md-2">
+          <label for="zip" class="form-label">CP</label>
+          <input type="text" class="form-control" id="zip" formControlName="zip" placeholder="Code Postal">
+        </div>
+      </div>
+      
+      <!-- Description -->
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" rows="4" formControlName="description"
+                  placeholder="Entrez une description pour l'établissement" required></textarea>
+      </div>
+      
+      <div class="mb-4">
+        <label class="form-label">Catégories</label>
+        <div class="row gy-3">
+            <div class="col-sm-6">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Commerce" id="commerce"
+                        formControlName="commerce">
+                    <label class="form-check-label" for="commerce">Commerce</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Hebergement" id="hebergement"
+                        formControlName="hebergement">
+                    <label class="form-check-label" for="hebergement">Hébergement</label>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Restauration" id="restauration"
+                        formControlName="restauration">
+                    <label class="form-check-label" for="restauration">Restauration</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Sortie" id="sortie"
+                        formControlName="sortie">
+                    <label class="form-check-label" for="sortie">Sortie</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="Autre" id="autre" formControlName="autre">
+            <label class="form-check-label" for="autre">Autre</label>
+        </div>
+    </div>
+    <!-- Web Link -->
+<div class="mb-3">
+    <label for="web" class="form-label">Site Web</label>
+    <input type="url" class="form-control" id="web" formControlName="web" placeholder="Entrez l'URL du site web">
+  </div>
+  
+  <!-- Map Link -->
+  <div class="mb-3">
+    <label for="map" class="form-label">Lien Google Map</label>
+    <input type="url" class="form-control" id="map" formControlName="map" placeholder="Entrez l'URL de la carte">
+  </div>  
+      <!-- Image -->
+      <!-- <div class="mb-3">
+        <label for="image" class="form-label">Image</label>
+        <input type="file" class="form-control" id="image" formControlName="image">
+      </div> -->
+      
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button type="submit" class="btn btn-lg" [disabled]="storeForm.invalid">Mettre à jour</button>
+      </div>
+    </form>
+  </div>

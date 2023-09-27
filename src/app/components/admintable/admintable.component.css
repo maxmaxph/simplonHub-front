@@ -1,3 +1,60 @@
-.container{
+.container {
     margin-top: 100px;
+    margin-bottom: 50px;
 }
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+  }
+
+  .btn-edit{
+    background-color: rgb(255, 234, 0);
+    color: black;
+    margin-left: 8px;
+  }
+
+  .table td {
+    word-wrap: break-word;
+}
+
+  @media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+    tr {
+      margin: 0 0 1rem 0;
+    }
+    td {
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 50%;
+    }
+    td:before {
+      position: absolute;
+      top: 0;
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+      content: attr(data-column);
+    }
+
+ 
+  }
+  
+  

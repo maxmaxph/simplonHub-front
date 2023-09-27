@@ -1,21 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
-// declare const bootstrap: any;
+import { ChangeDetectorRef } from '@angular/core';
 import * as bootstrap from 'bootstrap';
+import { AuthGuardService } from 'src/app/services/auth-guard.service';
+import { AuthGuard } from 'src/app/guards/auth-guard.guard';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
+  roleId: number | undefined;
   isUserLoggedIn = false;
-  constructor(private userService: UserService) {}
 
+  constructor(
+    private userService: UserService,
+    private authGuard: AuthGuard,
+    private cdr: ChangeDetectorRef
+  ) {}
+  //admin en fonction du role ID
   ngOnInit() {
-    // je suis l'état de connection de l'usager
-    console.log('isuserLoggedIn', this.isUserLoggedIn);
-
-    this.isUserLoggedIn = !!localStorage.getItem('token');
+    this.authGuard.initializeUser();
+    this.authGuard.currentUser.subscribe((user) => {
+      this.roleId = user.roleId;
+      this.isUserLoggedIn = !!user;
+      this.cdr.detectChanges(); // Forcer la détection de changements
+    });
   }
   // methode pour fermer le menu à l'evenement click de se connecter
   closeOffcanvas(offcanvas: any): void {
@@ -39,7 +49,7 @@ export class NavbarComponent {
   onLogout(): void {
     console.log('Tentative de déconnexion');
     this.userService.logout();
-    this.isUserLoggedIn = !this.isUserLoggedIn; // Mettez à jour l'état de connexion
+    this.isUserLoggedIn = !this.isUserLoggedIn; //
     console.log('je suis dans onlogout isuserloggedin : ', this.isUserLoggedIn);
 
     console.log('Déconnexion réussie');
