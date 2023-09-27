@@ -10,6 +10,7 @@ import { PageStoreComponent } from './pages/page-store/page-store.component';
 import { PageAddStoreComponent } from './pages/page-add-store/page-add-store.component';
 import { PageAdminComponent } from './pages/page-admin/page-admin.component';
 import { StoreDetailComponent } from './components/store-detail/store-detail.component';
+import { PageInfosComponent } from './pages/page-infos/page-infos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -22,6 +23,7 @@ const routes: Routes = [
     component: PageStoreComponent,
     canActivate: [AuthGuard],
   },
+  { path: 'info', component: PageInfosComponent},
   {
     path: 'add-store',
     component: PageAddStoreComponent,

@@ -15,7 +15,7 @@ export class StoreDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private storeService: StoreService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -25,4 +25,8 @@ export class StoreDetailComponent implements OnInit {
       });
     }
   }
+  goBack() {
+    window.history.back();
+  }
+
 }
