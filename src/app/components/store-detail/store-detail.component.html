@@ -2,7 +2,7 @@
   <div class="row mb-4">
     <div class="col-md-4">
       <div class="card">
-        <img [src]="imageUrl" alt="{{ store.name }} image" class="card-img-top"/>
+        <img [src]="imageUrl" alt="image par defaut pour {{ store.name }} " class="card-img-top"/>
       </div>
     </div>
     <div class="title col-md-8">
@@ -36,12 +36,12 @@
     <div class="col-md-6">
       <div *ngIf="store.web" class="store-web mb-3">
         <h4>Site Web</h4>
-        <a [href]="store.web" target="_blank">{{ store.web }}</a>
+        <a [href]="store.web" target="_blank" aria-label="lien vers le site web">{{ store.web }}</a>
       </div>
 
       <div *ngIf="store.map" class="store-map mb-3">
         <h4>Carte</h4>
-        <a [href]="store.map" target="_blank" class="btn">Voir sur la carte</a>
+        <a [href]="store.map" target="_blank" class="btn" aria-label="Bouton voire sur la carte">Voire sur la carte</a>
       </div>
     </div>
   </div>
@@ -55,7 +55,7 @@
     </ul>
   </div>
   <div class="retour">
-  <a (click)="goBack()" target="_blank" class="btn">Retour</a>
-</div>
+    <button (click)="goBack()"  class="btn" aria-label="Bouton de retour">Retour</button>
+  </div>
 </div>
 
