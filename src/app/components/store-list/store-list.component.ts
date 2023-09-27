@@ -23,7 +23,7 @@ export class StoreListComponent {
   this.storeService.getStoreByCategory(this.categoryId).subscribe((stores) => {
     console.log('je suis dans le fetchStores et j\'ai récupéré les stores', stores);
 
-    // Calculez la note moyenne pour chaque store
+    // Calculez la note moyenne pour chaque store // OPTION D'AMELIORATION
     stores.forEach(store => {
       if (store.comments && store.comments.length > 0) {
         const totalNotes = store.comments.reduce((acc: any, comment: { note: any; }) => acc + comment.note, 0);

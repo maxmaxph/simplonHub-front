@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 export class UserService {
   constructor(private readonly http: HttpClient, private router: Router) {}
   url: string = `http://localhost:3000/api/`;
+  // 1 - déclaration d'un behaviour subject (init à false) pour transmettre un booléen (true si connecté)
 
   loginUser(user: any): Observable<any> {
     // On envoie l'utilisateur au serveur

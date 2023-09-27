@@ -1,4 +1,13 @@
-
+.container {
+    display: flex;
+    justify-content: center;
+      }
+  
+.img-box {
+    display: block;
+    max-width: 90%;
+    height: auto;
+  }
 
 .card {
     position: relative;
@@ -93,12 +102,12 @@
 
 @media (max-width: 480px) {
      .card {
-        width: 310px;
+        max-width: 100%;
         border-radius: 15px;
     }
 
      .card .img-box {
-        width: 250px;
+        max-width: 90%;
         border-radius: 10px;
     }
 

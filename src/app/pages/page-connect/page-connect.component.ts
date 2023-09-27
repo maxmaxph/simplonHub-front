@@ -32,6 +32,8 @@ export class PageConnectComponent {
 
         // Stocker le token dans le localStorage
         localStorage.setItem('token', token);
+
+        // 2 - Utilisation du behaviour subject (du UserService) pour transmettre la valeur true
         
 
         // Afficher la modale de succès
