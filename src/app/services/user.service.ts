@@ -2,11 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
+  private userLoggedIn = new BehaviorSubject<boolean>(false);
+  userLoggedIn$ = this.userLoggedIn.asObservable(); //  Observable abonnements
+
   constructor(private readonly http: HttpClient, private router: Router) {}
   url: string = `http://localhost:3000/api/`;
   // 1 - déclaration d'un behaviour subject (init à false) pour transmettre un booléen (true si connecté)
@@ -36,5 +40,8 @@ export class UserService {
   softDeleteUser(id: number): Observable<any> { // On utilise un patch pour le soft delete
     console.log('je suis dans user.service.ts softDeleteUser id = ', id);
     return this.http.patch(`${this.url}user/soft-delete/${id}`, {});
+  }
+  setLoggedIn(value: boolean): void {
+    this.userLoggedIn.next(value);
   }
 }
