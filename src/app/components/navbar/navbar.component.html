@@ -65,7 +65,7 @@
                             Soumettre un établissement</a>
                     </li>
                     <li class="nav-item" *ngIf="roleId === 2">
-                        <a class="nav-link" [routerLink]="['/admin']">Admin</a>
+                        <a class="nav-link" [routerLink]="['/admin']" (click)="onLinkClick(offcanvas)">Admin</a>
                       </li>
                 </ul>
             </div>
