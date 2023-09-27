@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from 'src/app/models/store';
 import { StoreService } from 'src/app/services/store.service';
-import { phoneNumberValidator } from 'src/app/vadidators/phone-number.validator';
+import { phoneNumberValidator } from '../../validators/phone-number.validator';
 import jwt_decode from 'jwt-decode';
 import { Modal } from 'bootstrap';
 import { Router } from '@angular/router';

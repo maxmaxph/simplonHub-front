@@ -21,6 +21,8 @@ export class NavbarComponent implements OnInit {
   //admin en fonction du role ID
   ngOnInit() {
     this.authGuard.initializeUser();
+
+    // 3 - subscribe au behaviour subject (de UserService) pour mettre à jour la valeur de isUserLoggedIn
     this.authGuard.currentUser.subscribe((user) => {
       this.roleId = user.roleId;
       this.isUserLoggedIn = !!user;

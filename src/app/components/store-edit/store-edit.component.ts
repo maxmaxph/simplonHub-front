@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StoreService } from 'src/app/services/store.service';
 import { Store } from 'src/app/models/store';
-import { phoneNumberValidator } from 'src/app/vadidators/phone-number.validator';
+import { phoneNumberValidator } from '../../validators/phone-number.validator';
 
 @Component({
   selector: 'app-store-edit',

@@ -5,7 +5,7 @@ import {
   Router,
 } from '@angular/router';
 import { catchError, map } from 'rxjs/operators';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { AuthGuardService } from '../services/auth-guard.service';
 import jwtDecode from 'jwt-decode';
@@ -13,10 +13,7 @@ import jwtDecode from 'jwt-decode';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard implements CanActivate {
-  private currentUserSubject = new BehaviorSubject<any>({});
-  public currentUser = this.currentUserSubject.asObservable();
-
+export class AdminGuard implements CanActivate {
   constructor(private authService: AuthGuardService, private router: Router) {}
 
   canActivate(
@@ -42,10 +39,21 @@ export class AuthGuard implements CanActivate {
           response
         );
 
+        // recupération des données dans le token
+        const decodedToken: any = jwtDecode(token);
+        console.log('decodedToken:', decodedToken);
+
         // Vérifiez d'abord la validité du token
         if (!response || response.valid !== true) {
           console.log('je suis dans le guard et le token est invalide');
           this.router.navigate(['/login']);
+          return false;
+        }
+
+        // Ensuite, vérifiez si le rôle est admin
+        if (decodedToken.roleId !== 2) {
+          console.log("je suis dans le guard et l'utilisateur n'est pas admin");
+          this.router.navigate(['/']);
           return false;
         }
 
@@ -69,18 +77,5 @@ export class AuthGuard implements CanActivate {
         return of(false);
       })
     );
-  }
-  // Methode pour decoder le token
-  setUserFromToken(token: string): void {
-    console.log('setUserFromToken is called');
-    const decodedToken: any = jwtDecode(token);
-    console.log('decodedToken:', decodedToken);
-    this.currentUserSubject.next(decodedToken);
-  }
-  initializeUser() {
-    const token = localStorage.getItem('token');
-    if (token) {
-      this.setUserFromToken(token);
-    }
   }
 }
