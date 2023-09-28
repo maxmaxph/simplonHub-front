@@ -22,6 +22,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+   
+
+
     this.authGuard.initializeUser();
 
     this.subscriptions.push(
@@ -33,6 +36,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
       this.userService.userLoggedIn$.subscribe((isLoggedIn) => {
         this.isUserLoggedIn = isLoggedIn;
         this.cdr.detectChanges(); // Forcer la détection de changements
+        // vérification de la présence d'un token dans le local storage
+        const token = localStorage.getItem('token');
+        if (token) {
+          // call API pour vérifier s'il est toujours valide en bonus pour aller plus loin
+          this.isUserLoggedIn = true;
+        }
       })
     );
   }
@@ -54,6 +63,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   onLogout(): void {
+    console.log('Logout');
+    
     this.userService.logout();
     this.userService.setLoggedIn(false);
   }

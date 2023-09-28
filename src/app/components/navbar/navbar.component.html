@@ -11,10 +11,9 @@
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasNavbarLabel">simplonHub</h5>
                 <!-- Logo de connexion cliquable pour le routing -->
-                <a [routerLink]="isUserLoggedIn ? null : 'login'" (click)="isUserLoggedIn ? onLogout() : null"
-                    class="logo-link">
+                <a class="logo-link">
                     <img *ngIf="!isUserLoggedIn" src="/assets/img/login.png" alt="Logo de connexion"
-                        class="logo-connexion" (click)="closeOffcanvas(offcanvas); isUserLoggedIn ? onLogout() : null">
+                        class="logo-connexion" (click)="closeOffcanvas(offcanvas)">
 
                     <img *ngIf="isUserLoggedIn" src="/assets/img/logout.png" alt="Logo de déconnexion"
                         class="logo-connexion" (click)="closeOffcanvas(offcanvas); onLogout()">
@@ -64,7 +63,7 @@
                         <a class="nav-link" (click)="onLinkClick(offcanvas)" [routerLink]="['/add-store']" ><img src="assets/img/soumettre.png" alt="" width="20" height="20" />
                             Soumettre un établissement</a>
                     </li>
-                    <li class="nav-item" *ngIf="isUserLoggedIn && roleId === 2">
+                    <li class="nav-item" *ngIf="roleId === 2">
                         <a class="nav-link" [routerLink]="['/admin']" (click)="onLinkClick(offcanvas)">Admin</a>
                     </li>
                     
