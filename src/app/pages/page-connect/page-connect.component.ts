@@ -35,6 +35,7 @@ export class PageConnectComponent {
           localStorage.setItem('token', token);
 
           // 2 - Utilisation du behaviour subject (du UserService) pour transmettre la valeur true
+          this.userService.setLoggedIn(true);
 
           // Afficher la modale de succès
           const loginModalElement = document.getElementById(

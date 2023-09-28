@@ -46,6 +46,7 @@ export class StoreService {
       headers: { Authorization: `Bearer ${token}` },
     }); // On envoie le token dans le header de la requête
   }
+  
   deleteStore(id: number): Observable<void> {
     return this.http.delete<void>(`${this.url}/${id}`);
   }
