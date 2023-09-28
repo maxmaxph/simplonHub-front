@@ -13,6 +13,10 @@ import { AuthGuardService } from '../services/auth-guard.service';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
+  currentUser: any;
+  initializeUser() {
+    throw new Error('Method not implemented.');
+  }
   constructor(private authService: AuthGuardService, private router: Router) {}
 
   canActivate(

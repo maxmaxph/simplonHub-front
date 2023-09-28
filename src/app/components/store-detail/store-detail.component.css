@@ -26,3 +26,8 @@ i {
 .title {
   background-color: rgb(247, 247, 247);
 }
+.retour {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

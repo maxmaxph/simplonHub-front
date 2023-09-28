@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 export class UserService {
   constructor(private readonly http: HttpClient, private router: Router) {}
   url: string = `http://localhost:3000/api/`;
+  // 1 - déclaration d'un behaviour subject (init à false) pour transmettre un booléen (true si connecté)
 
   loginUser(user: any): Observable<any> {
     // On envoie l'utilisateur au serveur
@@ -24,9 +25,10 @@ export class UserService {
     // je supprime le token de l'espace de stockage
     localStorage.removeItem('token');
 
-    // je redirige l'usager vers la page de connexion
+    // je redirige l'usager vers la page de connexion ou la page d'accueil
     this.router.navigate(['/login']);
   }
+
   getAllUsers(): Observable<any> {
     return this.http.get(`${this.url}user`);
   }
@@ -37,3 +39,4 @@ export class UserService {
     return this.http.patch(`${this.url}user/soft-delete/${id}`, {});
   }
 }
+
