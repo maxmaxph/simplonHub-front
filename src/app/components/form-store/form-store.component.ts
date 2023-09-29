@@ -75,7 +75,7 @@ export class FormStoreComponent {
      
 
       this.storeService.createStore(newStore).subscribe(() => { 
-        console.log("mise à jour effectuée");  
+        // console.log("mise à jour effectuée");  
         const submissionModalElement = document.getElementById('submissionModal') as HTMLElement;
         const submissionModal = new Modal(submissionModalElement);
         submissionModal.show();

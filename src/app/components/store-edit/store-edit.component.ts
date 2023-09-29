@@ -75,7 +75,7 @@ export class StoreEditComponent implements OnInit {
     if (this.storeForm.valid && this.store) {
       const updatedStore: Store = { ...this.store, ...this.storeForm.value, categories: this.getSelectedCategories() };
       this.storeService.updateStore(updatedStore).subscribe(() => {
-        console.log(updatedStore);
+        // console.log(updatedStore);
         this.router.navigate(['/admin']); // redirige vers la page d'accueil ou une autre route après la mise à jour
       });
     }

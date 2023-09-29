@@ -21,7 +21,7 @@ export class StoreListComponent {
 
   fetchStores() {
   this.storeService.getStoreByCategory(this.categoryId).subscribe((stores) => {
-    console.log('je suis dans le fetchStores et j\'ai récupéré les stores', stores);
+    // console.log('je suis dans le fetchStores et j\'ai récupéré les stores', stores);
 
     // Calculez la note moyenne pour chaque store // OPTION D'AMELIORATION
     stores.forEach(store => {

@@ -29,7 +29,7 @@ export class AdmintableComponent implements OnInit {
   deleteStore(id: number): void {
     this.storeService.deleteStore(id).subscribe(
       () => {
-        console.log('Store supprimé avec succès');
+        // console.log('Store supprimé avec succès');
         this.deletedEntityType = 'store';
         this.isModalVisible = true; // Affiche la modal
         this.stores = this.stores.filter(store => store.id !== id);
@@ -38,10 +38,10 @@ export class AdmintableComponent implements OnInit {
     );
   }
   deleteUser(id: number): void {
-    console.log(id);
+    // console.log(id);
     this.userService.softDeleteUser(id).subscribe(
       (response) => {
-        console.log('Soft delete réussi', response);
+        // console.log('Soft delete réussi', response);
         this.deletedEntityType = 'user';
         this.isModalVisible = true; // Affiche la modal
       },

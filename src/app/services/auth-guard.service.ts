@@ -25,10 +25,7 @@ export class AuthGuardService {
     return this.http.post(`${this.apiUrl}`,{}, { headers }).pipe(
       map((response) => {
         // On retourne la réponse du serveur
-        console.log(
-          'je suis dans guard service et la reponse du serveur',
-          response
-        );
+      
         return response;
       }),
       catchError((error) => {

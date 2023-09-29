@@ -24,10 +24,10 @@ export class PageConnectComponent {
   onSubmit() {
     if (this.loginForm.valid) {
       const userLogin: any = this.loginForm.value; // On récupère les données du formulaire
-      console.log('je suis dans le submit, userLogin = ', userLogin);
+      // console.log('je suis dans le submit, userLogin = ', userLogin);
       this.userService.loginUser(userLogin).subscribe((res) => {
         // On envoie l'utilisateur au serveur
-        console.log('je suis dans le submit et je récupère res = ', res);
+        // console.log('je suis dans le submit et je récupère res = ', res);
         const token = res.accessToken; // On récupère le token
 
         // Stocker le token dans le localStorage
@@ -45,7 +45,7 @@ export class PageConnectComponent {
         loginModal.show();
 
 
-        console.log('Token:', token);
+        // console.log('Token:', token);
       }, (error) => {
         const errorModalElement = document.getElementById('errorModal') as HTMLElement;
         const errorModal = new Modal(errorModalElement);

@@ -18,12 +18,12 @@ export class FooterComponent {
     }, 0);
   }
   onLogout(): void {
-    console.log('Tentative de déconnexion');
+    // console.log('Tentative de déconnexion');
     this.userService.logout();
     this.isUserLoggedIn = !this.isUserLoggedIn; // Mettez à jour l'état de connexion
    
 
-    console.log('Déconnexion réussie');
+    // console.log('Déconnexion réussie');
     this.router.navigate(['/']);
   }
 }

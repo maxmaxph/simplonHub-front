@@ -16,7 +16,7 @@ export class AdminGuard implements CanActivate {
     route: ActivatedRouteSnapshot, 
     state: RouterStateSnapshot
   ): Observable<boolean> { // On retourne un boolean
-    console.log("je suis dans le guard");
+    // console.log("je suis dans le guard");
     
     const token = localStorage.getItem('token'); // token dans le localStorage
 
@@ -27,22 +27,22 @@ export class AdminGuard implements CanActivate {
 
     return this.authService.validateToken(token).pipe(
     map(response => { 
-      console.log('je suis dans le guard et la reponse du service : ', response);
+      // console.log('je suis dans le guard et la reponse du service : ', response);
       
       // recupération des données dans le token 
       const decodedToken: any = jwtDecode(token);
-      console.log('decodedToken:', decodedToken);       
+      // console.log('decodedToken:', decodedToken);       
             
       // Vérifiez d'abord la validité du token
       if (!response || response.valid !== true) { 
-        console.log('je suis dans le guard et le token est invalide');
+        // console.log('je suis dans le guard et le token est invalide');
         this.router.navigate(['/login']);
         return false;
       }
 
       // Ensuite, vérifiez si le rôle est admin
       if (decodedToken.roleId !== 2) {
-        console.log('je suis dans le guard et l\'utilisateur n\'est pas admin');
+        // console.log('je suis dans le guard et l\'utilisateur n\'est pas admin');
         this.router.navigate(['/']);
         return false;
       }
@@ -50,16 +50,16 @@ export class AdminGuard implements CanActivate {
 
       // Ensuite, vérifiez si l'utilisateur est supprimé
       if (response.isDeleted === true) {
-        console.log('je suis dans le guard et l\'utilisateur est supprimé');  
+        // console.log('je suis dans le guard et l\'utilisateur est supprimé');  
         this.router.navigate(['/login'], { queryParams: { message: 'User account is deactivated' } });
         return false;
       }
 
-      console.log('je suis dans le guard et le token est valide');  
+      // console.log('je suis dans le guard et le token est valide');  
       return true;
       }),
       catchError(error => {
-        console.error('Erreur lors de la validation du token:', error);
+        // console.error('Erreur lors de la validation du token:', error);
         this.router.navigate(['/login'], { queryParams: { message: 'Token validation failed' } }); 
         return of(false);
       })

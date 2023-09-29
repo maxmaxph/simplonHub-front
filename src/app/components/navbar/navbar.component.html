@@ -14,7 +14,7 @@
                 <a [routerLink]="isUserLoggedIn ? null : 'login'" (click)="isUserLoggedIn ? onLogout() : null"
                     class="logo-link">
                     <img *ngIf="!isUserLoggedIn" src="/assets/img/login.png" alt="Logo de connexion"
-                        class="logo-connexion" (click)="closeOffcanvas(offcanvas); isUserLoggedIn ? onLogout() : null">
+                        class="logo-connexion" (click)="closeOffcanvas(offcanvas)">
 
                     <img *ngIf="isUserLoggedIn" src="/assets/img/logout.png" alt="Logo de déconnexion"
                         class="logo-connexion" (click)="closeOffcanvas(offcanvas); onLogout()">

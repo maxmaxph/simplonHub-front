@@ -33,6 +33,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
       this.userService.userLoggedIn$.subscribe(isLoggedIn => {
         this.isUserLoggedIn = isLoggedIn;
         this.cdr.detectChanges(); // Forcer la détection de changements
+       // vérification de la présence d'un token dans le local storage
+       const token = localStorage.getItem('token');
+       if (token) {
+         // call API pour vérifier s'il est toujours valide en bonus pour aller plus loin
+         this.isUserLoggedIn = true;
+       }
       })
     );
   }

@@ -24,8 +24,8 @@ export class PageStoreComponent implements OnInit {
       } else {
         this.storeService.getStoreByCategory(this.categoryId).subscribe((data: Store[]) => {
           this.tabStore = data;
-          console.log(this.tabStore); 
-          console.log(this.tabStore.map(e => e.comments[0] ? e.comments[0].note : 0));
+          // console.log(this.tabStore); 
+          // console.log(this.tabStore.map(e => e.comments[0] ? e.comments[0].note : 0));
         })
       }
     });

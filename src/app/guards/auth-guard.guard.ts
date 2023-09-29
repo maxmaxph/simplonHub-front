@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot, 
     state: RouterStateSnapshot
   ): Observable<boolean> { // On retourne un boolean
-    console.log("je suis dans le guard");
+    // console.log("je suis dans le guard");
     
     const token = localStorage.getItem('token'); // token dans le localStorage
 
@@ -31,23 +31,23 @@ export class AuthGuard implements CanActivate {
 
     return this.authService.validateToken(token).pipe(
     map(response => { 
-      console.log('je suis dans le guard et la reponse du service : ', response);
+      // console.log('je suis dans le guard et la reponse du service : ', response);
 
       // Vérifiez d'abord la validité du token
       if (!response || response.valid !== true) { 
-        console.log('je suis dans le guard et le token est invalide');
+        // console.log('je suis dans le guard et le token est invalide');
         this.router.navigate(['/login']);
         return false;
       }
 
       // Ensuite, vérifiez si l'utilisateur est supprimé
       if (response.isDeleted === true) {
-        console.log('je suis dans le guard et l\'utilisateur est supprimé');  
+        // console.log('je suis dans le guard et l\'utilisateur est supprimé');  
         this.router.navigate(['/login'], { queryParams: { message: 'User account is deactivated' } });
         return false;
       }
 
-      console.log('je suis dans le guard et le token est valide');  
+      // console.log('je suis dans le guard et le token est valide');  
       return true;
       }),
       catchError(error => {
@@ -60,9 +60,9 @@ export class AuthGuard implements CanActivate {
   } 
   // Methode pour decoder le token 
   setUserFromToken(token: string): void {
-    console.log('setUserFromToken is called');
+    // console.log('setUserFromToken is called');
     const decodedToken: any = jwtDecode(token);
-    console.log('decodedToken:', decodedToken);
+    // console.log('decodedToken:', decodedToken);
     this.currentUserSubject.next(decodedToken);
   }
   initializeUser() {
