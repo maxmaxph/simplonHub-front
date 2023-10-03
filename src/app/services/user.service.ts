@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 import { User } from '../models/user';
+import { Token } from '../models/token.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -16,9 +17,9 @@ export class UserService {
   url: string = `http://localhost:3000/api/`;
   // 1 - déclaration d'un behaviour subject (init à false) pour transmettre un booléen (true si connecté)
 
-  loginUser(user: User): Observable<User> {
+  loginUser(user: User): Observable<Token> {
     // On envoie l'utilisateur au serveur
-    return this.http.post<User>(`${this.url}auth/login`, user);
+    return this.http.post<Token>(`${this.url}auth/login`, user);
   }
 
   subscribe(user: User): Observable<User> {

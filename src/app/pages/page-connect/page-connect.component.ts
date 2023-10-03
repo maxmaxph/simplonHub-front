@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Modal } from 'bootstrap';
+import { Token } from 'src/app/models/token.interface';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -26,7 +27,7 @@ export class PageConnectComponent {
       const userLogin: any = this.loginForm.value; // On récupère les données du formulaire
       console.log('je suis dans le submit, userLogin = ', userLogin);
       this.userService.loginUser(userLogin).subscribe(
-        (res: any) => {
+        (res : Token) => {
           // On envoie l'utilisateur au serveur
           console.log('je suis dans le submit et je récupère res = ', res);
           const token = res.accessToken; // On récupère le token
