@@ -16,12 +16,12 @@ export class UserService {
   url: string = `http://localhost:3000/api/`;
   // 1 - déclaration d'un behaviour subject (init à false) pour transmettre un booléen (true si connecté)
 
-  loginUser(user: any): Observable<User> {
+  loginUser(user: User): Observable<User> {
     // On envoie l'utilisateur au serveur
     return this.http.post<User>(`${this.url}auth/login`, user);
   }
 
-  subscribe(user: any): Observable<User> {
+  subscribe(user: User): Observable<User> {
     // On envoie l'utilisateur au serveur
     return this.http.post<User>(`${this.url}auth/register`, user);
   }
@@ -34,14 +34,14 @@ export class UserService {
     this.router.navigate(['/login']);
   }
 
-  getAllUsers(): Observable<any> {
-    return this.http.get(`${this.url}user`);
+  getAllUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.url}user`);
   }
 
-  softDeleteUser(id: number): Observable<any> {
+  softDeleteUser(id: number): Observable<User> {
     // On utilise un patch pour le soft delete
     console.log('je suis dans user.service.ts softDeleteUser id = ', id);
-    return this.http.patch(`${this.url}user/soft-delete/${id}`, {});
+    return this.http.patch<User>(`${this.url}user/soft-delete/${id}`, {});
   }
   setLoggedIn(value: boolean): void {
     this.userLoggedIn.next(value);
