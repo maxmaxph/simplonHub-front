@@ -46,8 +46,7 @@ export class PageConnectComponent {
           loginModal.show();
 
           console.log('Token:', token);
-        },
-        (error) => {
+        },  error => {
           const errorModalElement = document.getElementById(
             'errorModal'
           ) as HTMLElement;
@@ -59,3 +58,5 @@ export class PageConnectComponent {
     }
   }
 }
+
+

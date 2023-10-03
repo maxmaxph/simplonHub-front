@@ -39,12 +39,12 @@ export class StoreService {
   }
 
   createStore(newStore: Store): Observable<Store> {
-    // On envoie la nouvelle plante au serveur
+    // On envoie le nouveau store au serveur
     console.log(newStore);
     const token = localStorage.getItem('token'); // On récupère le token dans le localStorage
     return this.http.post<Store>(this.url, newStore, {
       headers: { Authorization: `Bearer ${token}` },
-    }); // On envoie le token dans le header de la requête
+    }); // On envoie le token dans les headers
   }
   
   deleteStore(id: number): Observable<void> {
