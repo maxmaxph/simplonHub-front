@@ -26,7 +26,7 @@ export class PageConnectComponent {
       const userLogin: any = this.loginForm.value; // On récupère les données du formulaire
       console.log('je suis dans le submit, userLogin = ', userLogin);
       this.userService.loginUser(userLogin).subscribe(
-        (res) => {
+        (res: any) => {
           // On envoie l'utilisateur au serveur
           console.log('je suis dans le submit et je récupère res = ', res);
           const token = res.accessToken; // On récupère le token

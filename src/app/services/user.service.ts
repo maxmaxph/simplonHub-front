@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root',
@@ -15,14 +16,14 @@ export class UserService {
   url: string = `http://localhost:3000/api/`;
   // 1 - déclaration d'un behaviour subject (init à false) pour transmettre un booléen (true si connecté)
 
-  loginUser(user: any): Observable<any> {
+  loginUser(user: any): Observable<User> {
     // On envoie l'utilisateur au serveur
-    return this.http.post(`${this.url}auth/login`, user);
+    return this.http.post<User>(`${this.url}auth/login`, user);
   }
 
-  subscribe(user: any): Observable<any> {
+  subscribe(user: any): Observable<User> {
     // On envoie l'utilisateur au serveur
-    return this.http.post(`${this.url}auth/register`, user);
+    return this.http.post<User>(`${this.url}auth/register`, user);
   }
 
   logout(): void {
