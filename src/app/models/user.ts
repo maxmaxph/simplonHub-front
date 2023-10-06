@@ -8,5 +8,5 @@ export interface User {
   password: string;
   date_in: Date;
   date_out: Date;
-  role_id: number;
+  roleId: number;
 }
